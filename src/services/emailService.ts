@@ -3,10 +3,14 @@ import { OrderDetails } from '../types';
 
 const WHATSAPP_BUSINESS_NUMBER = '573213200601';
 
+// EmailJS Configuration (you'll need to set these up)
+const EMAILJS_SERVICE_ID = 'service_scentmart';
+const EMAILJS_TEMPLATE_ID = 'template_order_confirmation';
+const EMAILJS_USER_ID = 'your_emailjs_user_id';
+
 export const emailService = {
   async sendOrderConfirmationEmail(orderDetails: OrderDetails): Promise<void> {
     try {
-      // Prepare email template parameters
       const formatPrice = (price: number) => {
         return new Intl.NumberFormat('es-CO', {
           style: 'currency',
@@ -38,14 +42,19 @@ export const emailService = {
         payment_method: orderDetails.paymentMethod
       };
 
-      console.log('📧 Enviando email de confirmación:', emailTemplateParams);
+      console.log('📧 Preparando email de confirmación:', emailTemplateParams);
       
-      // In a real implementation, configure EmailJS here
-      // await emailjs.send('service_id', 'template_id', emailTemplateParams, 'user_id');
+      // For now, we'll simulate email sending
+      // To enable real emails, you need to:
+      // 1. Create an EmailJS account
+      // 2. Set up a service and template
+      // 3. Replace the constants above with real values
       
-      console.log('✅ Email de confirmación enviado exitosamente');
+      // await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailTemplateParams, EMAILJS_USER_ID);
+      
+      console.log('✅ Email de confirmación preparado (configurar EmailJS para envío real)');
     } catch (error) {
-      console.error('❌ Error enviando email:', error);
+      console.error('❌ Error preparando email:', error);
     }
   },
 
@@ -109,13 +118,65 @@ Tu Aroma, Tu Historia 🌸`;
         total: formatPrice(orderDetails.total)
       });
 
-      // In a real implementation, this would use WhatsApp Business API
-      // For now, we'll open the WhatsApp link automatically
+      // Open WhatsApp with the message
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
       
       console.log('✅ Notificación WhatsApp enviada exitosamente');
     } catch (error) {
       console.error('❌ Error enviando WhatsApp:', error);
+    }
+  },
+
+  // Alternative method: Send customer WhatsApp confirmation
+  async sendCustomerWhatsAppConfirmation(orderDetails: OrderDetails): Promise<void> {
+    try {
+      const formatPrice = (price: number) => {
+        return new Intl.NumberFormat('es-CO', {
+          style: 'currency',
+          currency: 'COP',
+          minimumFractionDigits: 0
+        }).format(price);
+      };
+
+      const customerMessage = `🌸 *CONFIRMACIÓN DE PEDIDO - SCENTMART* 🌸
+
+¡Hola ${orderDetails.customerInfo.name}! 👋
+
+Tu pedido ha sido confirmado exitosamente:
+
+📋 *Número de Pedido:* ${orderDetails.id}
+📅 *Fecha:* ${new Date(orderDetails.orderDate).toLocaleDateString('es-CO')}
+💰 *Total:* ${formatPrice(orderDetails.total)}
+
+🚚 *Entrega:*
+Recibirás tu pedido en 1-2 días hábiles en:
+${orderDetails.customerInfo.address}, ${orderDetails.customerInfo.city}
+
+💳 *Pago:* ${orderDetails.paymentMethod}
+
+¡Gracias por elegir ScentMart! 
+Tu Aroma, Tu Historia 🌸
+
+---
+*ScentMart Perfumes*
+📞 +57 321 320 0601
+📧 scentmartperfumes@gmail.com`;
+
+      // Remove country code for customer WhatsApp
+      const customerPhone = orderDetails.customerInfo.whatsapp.replace(/^\+?57/, '57');
+      const encodedCustomerMessage = encodeURIComponent(customerMessage);
+      const customerWhatsappUrl = `https://wa.me/${customerPhone}?text=${encodedCustomerMessage}`;
+      
+      console.log('📱 Preparando confirmación WhatsApp para cliente:', {
+        to: customerPhone,
+        orderId: orderDetails.id
+      });
+
+      // For demo purposes, we'll log the URL
+      console.log('🔗 URL de confirmación al cliente:', customerWhatsappUrl);
+      
+    } catch (error) {
+      console.error('❌ Error preparando WhatsApp del cliente:', error);
     }
   }
 };

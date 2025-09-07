@@ -177,13 +177,31 @@ function App() {
       // Navigate to thank you page
       setCurrentView('thank-you');
       
+      showNotification('Pedido confirmado exitosamente', 'success');
+      
       // Send confirmation email
-      await emailService.sendOrderConfirmationEmail(orderDetails);
+      try {
+        await emailService.sendOrderConfirmationEmail(orderDetails);
+        showNotification('Email de confirmación preparado', 'info');
+      } catch (error) {
+        console.error('Error con email:', error);
+      }
       
       // Send WhatsApp notification
-      await emailService.sendWhatsAppNotification(orderDetails);
+      try {
+        await emailService.sendWhatsAppNotification(orderDetails);
+        showNotification('Notificación WhatsApp enviada', 'success');
+      } catch (error) {
+        console.error('Error con WhatsApp:', error);
+      }
       
-      showNotification('Pedido confirmado exitosamente', 'success');
+      // Send customer WhatsApp confirmation
+      try {
+        await emailService.sendCustomerWhatsAppConfirmation(orderDetails);
+      } catch (error) {
+        console.error('Error con WhatsApp del cliente:', error);
+      }
+      
     } catch (error) {
       console.error('Error placing order:', error);
       showNotification('Error al procesar el pedido', 'error');
