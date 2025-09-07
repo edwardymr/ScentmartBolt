@@ -23,7 +23,7 @@ export default function CatalogView({
 }: CatalogViewProps) {
   const [selectedGenders, setSelectedGenders] = useState<string[]>([]);
   const [selectedFamilies, setSelectedFamilies] = useState<string[]>([]);
-  const [priceRange, setPriceRange] = useState<[number, number]>([200000, 700000]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([25000, 75000]);
   const [sortOption, setSortOption] = useState('relevance');
 
   const filteredAndSortedPerfumes = useMemo(() => {
