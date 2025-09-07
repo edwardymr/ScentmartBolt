@@ -21,6 +21,7 @@ import ToastNotification from './components/ToastNotification';
 import QuizModal from './components/modals/QuizModal';
 import PerfumeDetailModal from './components/modals/PerfumeDetailModal';
 import SearchModal from './components/modals/SearchModal';
+import AdminLoginModal from './components/modals/AdminLoginModal';
 
 // Admin
 import AdminPage from './components/admin/AdminPage';
@@ -45,6 +46,7 @@ function App() {
   const [isQuizModalOpen, setIsQuizModalOpen] = useState(false);
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+  const [isAdminLoginModalOpen, setIsAdminLoginModalOpen] = useState(false);
   const [selectedPerfume, setSelectedPerfume] = useState<Perfume | null>(null);
   const [lastOrderDetails, setLastOrderDetails] = useState<OrderDetails | null>(null);
 
@@ -205,6 +207,16 @@ function App() {
     setNotifications(prev => prev.filter(n => n.id !== id));
   };
 
+  // Admin authentication
+  const handleAdminAccess = () => {
+    setIsAdminLoginModalOpen(true);
+  };
+
+  const handleAdminLogin = () => {
+    setCurrentView('admin');
+    showNotification('Acceso autorizado al panel de administración', 'success');
+  };
+
   // Calculate cart total items
   const cartItemsCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -303,7 +315,7 @@ function App() {
 
       {/* Footer */}
       {currentView === 'home' && (
-        <Footer onAdminAccess={() => setCurrentView('admin')} />
+        <Footer onAdminAccess={handleAdminAccess} />
       )}
 
       {/* Modals */}
@@ -329,6 +341,12 @@ function App() {
         perfumes={perfumes}
         onAddToCart={handleAddToCart}
         onViewDetails={handleViewDetails}
+      />
+
+      <AdminLoginModal
+        isOpen={isAdminLoginModalOpen}
+        onClose={() => setIsAdminLoginModalOpen(false)}
+        onLogin={handleAdminLogin}
       />
 
       {/* Toast Notifications */}
