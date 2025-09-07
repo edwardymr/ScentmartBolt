@@ -37,13 +37,16 @@ export const emailService = {
           hour: '2-digit',
           minute: '2-digit'
         }),
-        order_items: itemsList,
+        order_items: orderDetails.items.map(item => 
+          `• ${item.perfume.name} (${item.perfume.brand}) - Cantidad: ${item.quantity} - ${formatPrice(item.perfume.price * item.quantity)}`
+        ).join('\n'),
         subtotal: formatPrice(orderDetails.total),
         shipping_cost: 'GRATIS',
         total_amount: formatPrice(orderDetails.total),
         shipping_address: orderDetails.customerInfo.address,
         shipping_city: orderDetails.customerInfo.city,
         customer_whatsapp: orderDetails.customerInfo.whatsapp,
+        customer_email: orderDetails.customerInfo.email,
         payment_method: orderDetails.paymentMethod
       };
 
