@@ -123,8 +123,9 @@ export default function ThankYouPage({ orderDetails, onBackToHome }: ThankYouPag
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
               <h3 className="font-semibold text-blue-800 mb-2">¿Qué sigue?</h3>
               <ul className="text-blue-700 text-sm space-y-1">
-                <li>• Recibirás un email de confirmación en {orderDetails.customerInfo.email}</li>
-                <li>• Te contactaremos por WhatsApp para confirmar la entrega</li>
+                <li>• ✅ Email de confirmación enviado a {orderDetails.customerInfo.email}</li>
+                <li>• ✅ Notificación enviada a nuestro WhatsApp para procesar tu pedido</li>
+                <li>• 📞 Te contactaremos por WhatsApp para confirmar la entrega</li>
                 <li>• Tu pedido llegará en 1-2 días hábiles sin costo adicional</li>
                 <li>• Podrás pagar al momento de recibir tu pedido</li>
               </ul>

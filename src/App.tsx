@@ -180,6 +180,9 @@ function App() {
       // Send confirmation email
       await emailService.sendOrderConfirmationEmail(orderDetails);
       
+      // Send WhatsApp notification
+      await emailService.sendWhatsAppNotification(orderDetails);
+      
       showNotification('Pedido confirmado exitosamente', 'success');
     } catch (error) {
       console.error('Error placing order:', error);
