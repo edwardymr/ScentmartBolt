@@ -13,9 +13,11 @@ export default function Footer({ onAdminAccess }: FooterProps) {
           {/* Brand Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full flex items-center justify-center">
-                <span className="text-slate-800 font-bold text-sm">S</span>
-              </div>
+              <img 
+                src="/images/logo-perfumes-instagram_post_1080x1080 (1).png" 
+                alt="ScentMart Logo" 
+                className="h-8 w-auto"
+              />
               <span className="text-xl font-serif font-bold">ScentMart</span>
             </div>
             <p className="text-gray-300 mb-4 leading-relaxed">

@@ -41,9 +41,11 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
             className="flex items-center space-x-2 cursor-pointer"
             onClick={() => onNavigate('home')}
           >
-            <div className="w-8 h-8 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full flex items-center justify-center">
-              <span className="text-slate-800 font-bold text-sm">S</span>
-            </div>
+            <img 
+              src="/images/logo-perfumes-instagram_post_1080x1080 (1).png" 
+              alt="ScentMart Logo" 
+              className="h-10 w-auto"
+            />
             <span className="text-white font-serif text-xl font-bold">ScentMart</span>
           </div>
 
