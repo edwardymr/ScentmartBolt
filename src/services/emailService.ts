@@ -3,10 +3,10 @@ import { OrderDetails } from '../types';
 
 const WHATSAPP_BUSINESS_NUMBER = '573213200601';
 
-// EmailJS Configuration (you'll need to set these up)
-const EMAILJS_SERVICE_ID = 'service_scentmart';
-const EMAILJS_TEMPLATE_ID = 'template_order_confirmation';
-const EMAILJS_USER_ID = 'your_emailjs_user_id';
+// EmailJS Configuration
+const EMAILJS_SERVICE_ID = 'service_izdlxnw';
+const EMAILJS_TEMPLATE_ID = 'template_order_confirmation'; // Necesitas crear este template
+const EMAILJS_USER_ID = 'your_emailjs_user_id'; // Necesitas tu User ID de EmailJS
 
 export const emailService = {
   async sendOrderConfirmationEmail(orderDetails: OrderDetails): Promise<void> {
@@ -44,15 +44,20 @@ export const emailService = {
 
       console.log('📧 Preparando email de confirmación:', emailTemplateParams);
       
-      // For now, we'll simulate email sending
-      // To enable real emails, you need to:
-      // 1. Create an EmailJS account
-      // 2. Set up a service and template
-      // 3. Replace the constants above with real values
+      // Intentar enviar email real
+      // NOTA: Necesitas completar la configuración de EmailJS:
+      // 1. ✅ Service ID configurado: service_izdlxnw
+      // 2. ⏳ Crear template: template_order_confirmation
+      // 3. ⏳ Obtener User ID de tu cuenta EmailJS
       
-      // await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailTemplateParams, EMAILJS_USER_ID);
+      try {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailTemplateParams, EMAILJS_USER_ID);
+        console.log('✅ Email de confirmación enviado exitosamente');
+      } catch (emailError) {
+        console.log('⚠️ Error enviando email (verificar configuración EmailJS):', emailError);
+        console.log('📧 Email preparado pero no enviado - completar configuración');
+      }
       
-      console.log('✅ Email de confirmación preparado (configurar EmailJS para envío real)');
     } catch (error) {
       console.error('❌ Error preparando email:', error);
     }
