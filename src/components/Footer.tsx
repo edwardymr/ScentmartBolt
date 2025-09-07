@@ -16,9 +16,12 @@ export default function Footer({ onAdminAccess }: FooterProps) {
               <img 
                 src="/images/logo-perfumes-instagram_post_1080x1080 (1).png" 
                 alt="ScentMart Logo" 
-                className="h-8 w-auto"
+               className="h-10 w-10 rounded-md bg-white/10 p-1"
               />
-              <span className="text-xl font-serif font-bold">ScentMart</span>
+             <div className="flex flex-col">
+               <span className="text-xl font-serif font-bold leading-tight">ScentMart</span>
+               <span className="text-amber-400 text-xs font-medium tracking-wide">PERFUMES</span>
+             </div>
             </div>
             <p className="text-gray-300 mb-4 leading-relaxed">
               Tu destino para paisajes olfativos únicos. Cada fragancia cuenta una historia, 

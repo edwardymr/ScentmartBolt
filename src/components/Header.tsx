@@ -44,9 +44,12 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
             <img 
               src="/images/logo-perfumes-instagram_post_1080x1080 (1).png" 
               alt="ScentMart Logo" 
-              className="h-10 w-auto"
+             className="h-12 w-12 rounded-lg shadow-sm bg-white/10 p-1"
             />
-            <span className="text-white font-serif text-xl font-bold">ScentMart</span>
+           <div className="flex flex-col">
+             <span className="text-white font-serif text-xl font-bold leading-tight">ScentMart</span>
+             <span className="text-amber-400 text-xs font-medium tracking-wide">PERFUMES</span>
+           </div>
           </div>
 
           {/* Navigation Links */}
