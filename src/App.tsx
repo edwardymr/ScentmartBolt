@@ -240,7 +240,6 @@ function App() {
           <>
             <Hero onOpenQuiz={() => setIsQuizModalOpen(true)} />
             <OlfactoryFamilyExplorer onNavigateToCatalog={handleNavigateToCatalog} />
-            <AboutSection />
             <BestsellersSection
               perfumes={perfumes}
               onAddToCart={handleAddToCart}
@@ -252,6 +251,7 @@ function App() {
               onViewDetails={handleViewDetails}
               recommendedPerfumes={recommendedPerfumes}
             />
+            <AboutSection />
           </>
         );
     }
