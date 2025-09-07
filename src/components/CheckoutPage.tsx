@@ -130,6 +130,7 @@ export default function CheckoutPage({ cartItems, onBack, onPlaceOrder }: Checko
                       value={customerInfo.whatsapp}
                       onChange={(e) => handleInputChange('whatsapp', e.target.value)}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                      placeholder="+57 321 320 0601"
                     />
                   </div>
 
@@ -143,6 +144,7 @@ export default function CheckoutPage({ cartItems, onBack, onPlaceOrder }: Checko
                       value={customerInfo.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                      placeholder="ejemplo@gmail.com"
                     />
                   </div>
                 </div>

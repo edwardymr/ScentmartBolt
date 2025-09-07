@@ -54,15 +54,26 @@ export default function Footer({ onAdminAccess }: FooterProps) {
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-amber-400" />
-                <span className="text-gray-300 text-sm">+57 300 123 4567</span>
+                <a href="tel:+573213200601" className="text-gray-300 text-sm hover:text-amber-400 transition-colors">
+                  +57 321 320 0601
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-amber-400" />
-                <span className="text-gray-300 text-sm">info@scentmart.co</span>
+                <a href="mailto:scentmartperfumes@gmail.com" className="text-gray-300 text-sm hover:text-amber-400 transition-colors">
+                  scentmartperfumes@gmail.com
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-amber-400" />
-                <span className="text-gray-300 text-sm">Santa Marta, Colombia</span>
+                <a 
+                  href="https://maps.app.goo.gl/bFwCXU77dFb1UEL57" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-300 text-sm hover:text-amber-400 transition-colors"
+                >
+                  Mz X Casa 32 B. Cantilito, Santa Marta
+                </a>
               </li>
             </ul>
           </div>
