@@ -5,7 +5,7 @@ const WHATSAPP_BUSINESS_NUMBER = '573213200601';
 
 // EmailJS Configuration
 const EMAILJS_SERVICE_ID = 'service_izdlxnw';
-const EMAILJS_TEMPLATE_ID = 'template_order_confirmation'; // Necesitas crear este template
+const EMAILJS_TEMPLATE_ID = 'template_di24rwu';
 const EMAILJS_USER_ID = 'your_emailjs_user_id'; // Necesitas tu User ID de EmailJS
 
 export const emailService = {
