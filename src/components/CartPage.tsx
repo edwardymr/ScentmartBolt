@@ -74,7 +74,7 @@ export default function CartPage({
               <div key={item.perfume.id} className="bg-white rounded-lg shadow-md p-6">
                 <div className="flex items-start gap-4">
                   <img
-                    src={item.perfume.localImageUrl || item.perfume.imageUrl || item.perfume.image}
+                    src={item.perfume.image}
                     alt={item.perfume.name}
                     className="w-20 h-20 object-cover rounded-lg"
                   />

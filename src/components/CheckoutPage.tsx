@@ -203,7 +203,7 @@ export default function CheckoutPage({ cartItems, onBack, onPlaceOrder }: Checko
                   {cartItems.map(item => (
                     <div key={item.perfume.id} className="flex items-start gap-3">
                       <img
-                        src={item.perfume.localImageUrl || item.perfume.imageUrl || item.perfume.image}
+                        src={item.perfume.image}
                         alt={item.perfume.name}
                         className="w-12 h-12 object-cover rounded-md"
                       />

@@ -74,7 +74,7 @@ export default function PerfumeDetailModal({
           <div className="space-y-4">
             <div className="aspect-square rounded-xl overflow-hidden bg-gray-100">
               <img 
-                src={currentPerfume.localImageUrl || currentPerfume.imageUrl || currentPerfume.image}
+                src={currentPerfume.image}
                 alt={currentPerfume.name}
                 className="w-full h-full object-cover"
               />

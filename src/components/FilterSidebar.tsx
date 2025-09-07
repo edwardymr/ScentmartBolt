@@ -147,14 +147,14 @@ export default function FilterSidebar({
             </div>
             <input
               type="range"
-              min="200000"
-              max="700000"
-              step="50000"
+              min="25000"
+              max="75000"
+              step="5000"
               value={priceRange[1]}
               onChange={(e) => onPriceChange([priceRange[0], parseInt(e.target.value)])}
               className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
               style={{
-                background: `linear-gradient(to right, #f97316 0%, #f97316 ${((priceRange[1] - 200000) / (700000 - 200000)) * 100}%, #e5e7eb ${((priceRange[1] - 200000) / (700000 - 200000)) * 100}%, #e5e7eb 100%)`
+                background: `linear-gradient(to right, #f97316 0%, #f97316 ${((priceRange[1] - 25000) / (75000 - 25000)) * 100}%, #e5e7eb ${((priceRange[1] - 25000) / (75000 - 25000)) * 100}%, #e5e7eb 100%)`
               }}
             />
           </div>

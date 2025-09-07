@@ -43,7 +43,7 @@ export default function CatalogView({
         case 'price-desc':
           return b.price - a.price;
         case 'newest':
-          return b.id.localeCompare(a.id);
+          return parseInt(b.id) - parseInt(a.id);
         case 'relevance':
         default:
           // If we have recommendations, prioritize them
@@ -63,7 +63,7 @@ export default function CatalogView({
   const clearFilters = () => {
     setSelectedGenders([]);
     setSelectedFamilies([]);
-    setPriceRange([200000, 700000]);
+    setPriceRange([25000, 75000]);
     setSortOption('relevance');
   };
 

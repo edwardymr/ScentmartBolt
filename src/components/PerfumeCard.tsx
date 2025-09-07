@@ -68,7 +68,7 @@ export default function PerfumeCard({
       {/* Product Image */}
       <div className="relative h-64 bg-gray-100 overflow-hidden">
         <img 
-          src={perfume.localImageUrl || perfume.imageUrl || perfume.image} 
+          src={perfume.image} 
           alt={perfume.name}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
         />

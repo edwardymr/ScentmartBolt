@@ -67,7 +67,7 @@ export default function CatalogManagementPage({ perfumes, onUpdatePerfume }: Cat
                 <td className="p-4">
                   <div className="flex items-center gap-3">
                     <img
-                      src={perfume.localImageUrl || perfume.imageUrl || perfume.image}
+                      src={perfume.image}
                       alt={perfume.name}
                       className="w-12 h-12 object-cover rounded-md"
                     />

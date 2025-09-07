@@ -158,7 +158,7 @@ export default function OrderManagementPage({ orders }: OrderManagementPageProps
                       {order.items.map(item => (
                         <div key={item.perfume.id} className="flex items-center gap-3 p-3 bg-white rounded-md">
                           <img
-                            src={item.perfume.localImageUrl || item.perfume.imageUrl || item.perfume.image}
+                            src={item.perfume.image}
                             alt={item.perfume.name}
                             className="w-10 h-10 object-cover rounded-md"
                           />

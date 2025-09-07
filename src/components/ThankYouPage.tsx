@@ -100,7 +100,7 @@ export default function ThankYouPage({ orderDetails, onBackToHome }: ThankYouPag
                 {orderDetails.items.map(item => (
                   <div key={item.perfume.id} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
                     <img
-                      src={item.perfume.localImageUrl || item.perfume.imageUrl || item.perfume.image}
+                      src={item.perfume.image}
                       alt={item.perfume.name}
                       className="w-16 h-16 object-cover rounded-md"
                     />
