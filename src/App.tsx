@@ -36,6 +36,11 @@ function App() {
   const [recommendedPerfumes, setRecommendedPerfumes] = useState<string[]>([]);
   const [notifications, setNotifications] = useState<ToastType[]>([]);
   
+  // Filter states (moved from CatalogView to App level)
+  const [selectedGenders, setSelectedGenders] = useState<string[]>([]);
+  const [selectedFamilies, setSelectedFamilies] = useState<string[]>([]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([30000, 80000]);
+  const [sortOption, setSortOption] = useState('relevance');
   // Modal states
   const [isQuizModalOpen, setIsQuizModalOpen] = useState(false);
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
@@ -56,8 +61,19 @@ function App() {
     }
   };
 
-  const handleNavigateToCatalog = () => {
+  const handleNavigateToCatalog = (family?: string) => {
     setCurrentView('home');
+    
+    // Si se especifica una familia, aplicar el filtro
+    if (family) {
+      // Resetear otros filtros y aplicar solo la familia seleccionada
+      setSelectedFamilies([family]);
+      setSelectedGenders([]);
+      setPriceRange([30000, 80000]); // Rango completo actualizado
+      setSortOption('relevance');
+      showNotification(`Mostrando productos de la familia ${family}`, 'info');
+    }
+    
     setTimeout(() => {
       const element = document.getElementById('catalog');
       if (element) {
@@ -239,7 +255,6 @@ function App() {
         return (
           <>
             <Hero onOpenQuiz={() => setIsQuizModalOpen(true)} />
-            <OlfactoryFamilyExplorer onNavigateToCatalog={handleNavigateToCatalog} />
             <BestsellersSection
               perfumes={perfumes}
               onAddToCart={handleAddToCart}
@@ -250,7 +265,16 @@ function App() {
               onAddToCart={handleAddToCart}
               onViewDetails={handleViewDetails}
               recommendedPerfumes={recommendedPerfumes}
+              selectedGenders={selectedGenders}
+              selectedFamilies={selectedFamilies}
+              priceRange={priceRange}
+              sortOption={sortOption}
+              onGenderChange={setSelectedGenders}
+              onFamilyChange={setSelectedFamilies}
+              onPriceChange={setPriceRange}
+              onSortChange={setSortOption}
             />
+            <OlfactoryFamilyExplorer onNavigateToCatalog={handleNavigateToCatalog} />
             <AboutSection />
           </>
         );

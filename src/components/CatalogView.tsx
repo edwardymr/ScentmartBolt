@@ -11,6 +11,14 @@ interface CatalogViewProps {
   isAdminMode?: boolean;
   onEditPerfume?: (perfume: Perfume) => void;
   recommendedPerfumes?: string[];
+  selectedGenders: string[];
+  selectedFamilies: string[];
+  priceRange: [number, number];
+  sortOption: string;
+  onGenderChange: (genders: string[]) => void;
+  onFamilyChange: (families: string[]) => void;
+  onPriceChange: (range: [number, number]) => void;
+  onSortChange: (option: string) => void;
 }
 
 export default function CatalogView({ 
@@ -19,12 +27,16 @@ export default function CatalogView({
   onViewDetails, 
   isAdminMode = false,
   onEditPerfume,
-  recommendedPerfumes = []
+  recommendedPerfumes = [],
+  selectedGenders,
+  selectedFamilies,
+  priceRange,
+  sortOption,
+  onGenderChange,
+  onFamilyChange,
+  onPriceChange,
+  onSortChange
 }: CatalogViewProps) {
-  const [selectedGenders, setSelectedGenders] = useState<string[]>([]);
-  const [selectedFamilies, setSelectedFamilies] = useState<string[]>([]);
-  const [priceRange, setPriceRange] = useState<[number, number]>([25000, 75000]);
-  const [sortOption, setSortOption] = useState('relevance');
 
   const filteredAndSortedPerfumes = useMemo(() => {
     let filtered = perfumes.filter(perfume => {
@@ -61,10 +73,10 @@ export default function CatalogView({
   }, [perfumes, selectedGenders, selectedFamilies, priceRange, sortOption, recommendedPerfumes]);
 
   const clearFilters = () => {
-    setSelectedGenders([]);
-    setSelectedFamilies([]);
-    setPriceRange([25000, 75000]);
-    setSortOption('relevance');
+    onGenderChange([]);
+    onFamilyChange([]);
+    onPriceChange([30000, 80000]);
+    onSortChange('relevance');
   };
 
   return (
@@ -93,9 +105,9 @@ export default function CatalogView({
               selectedGenders={selectedGenders}
               selectedFamilies={selectedFamilies}
               priceRange={priceRange}
-              onGenderChange={setSelectedGenders}
-              onFamilyChange={setSelectedFamilies}
-              onPriceChange={setPriceRange}
+              onGenderChange={onGenderChange}
+              onFamilyChange={onFamilyChange}
+              onPriceChange={onPriceChange}
               onClearFilters={clearFilters}
             />
           </div>
@@ -105,7 +117,7 @@ export default function CatalogView({
             <SortBar
               totalResults={filteredAndSortedPerfumes.length}
               sortOption={sortOption}
-              onSortChange={setSortOption}
+              onSortChange={onSortChange}
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">

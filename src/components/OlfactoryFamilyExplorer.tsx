@@ -2,7 +2,7 @@ import React from 'react';
 import { Flower2, Crown, TreePine, Sun, Leaf } from 'lucide-react';
 
 interface OlfactoryFamilyExplorerProps {
-  onNavigateToCatalog: () => void;
+  onNavigateToCatalog: (family?: string) => void;
 }
 
 const families = [
@@ -57,7 +57,7 @@ export default function OlfactoryFamilyExplorer({ onNavigateToCatalog }: Olfacto
             return (
               <button
                 key={family.name}
-                onClick={onNavigateToCatalog}
+                onClick={() => onNavigateToCatalog(family.name)}
                 className="group relative overflow-hidden rounded-2xl p-8 text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl"
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${family.color} opacity-90 group-hover:opacity-100 transition-opacity`} />
