@@ -5,7 +5,8 @@ const WHATSAPP_BUSINESS_NUMBER = '573213200601';
 
 // EmailJS Configuration
 const EMAILJS_SERVICE_ID = 'service_izdlxnw';
-const EMAILJS_TEMPLATE_ID = 'template_di24rwu';
+const EMAILJS_CUSTOMER_TEMPLATE_ID = 'template_di24rwu';
+const EMAILJS_BUSINESS_TEMPLATE_ID = 'template_business_notification'; // Necesitarás crear este template
 const EMAILJS_PUBLIC_KEY = 'cbMBtEKYL9MrUE46r';
 
 export const emailService = {
@@ -23,10 +24,12 @@ export const emailService = {
         `• ${item.perfume.name} (${item.perfume.brand}) - Cantidad: ${item.quantity} - ${formatPrice(item.perfume.price * item.quantity)}`
       ).join('\n');
 
-      const emailTemplateParams = {
+      // Email para el cliente
+      const customerEmailParams = {
         to_email: orderDetails.customerInfo.email,
+        to_name: orderDetails.customerInfo.name,
         customer_name: orderDetails.customerInfo.name,
-        order_id: orderDetails.id,
+        order_number: orderDetails.id,
         order_date: new Date(orderDetails.orderDate).toLocaleDateString('es-CO', {
           year: 'numeric',
           month: 'long',
@@ -34,19 +37,51 @@ export const emailService = {
           hour: '2-digit',
           minute: '2-digit'
         }),
-        items_list: itemsList,
+        order_items: itemsList,
+        subtotal: formatPrice(orderDetails.total),
+        shipping_cost: 'GRATIS',
         total_amount: formatPrice(orderDetails.total),
-        delivery_address: orderDetails.customerInfo.address,
-        delivery_city: orderDetails.customerInfo.city,
-        customer_phone: orderDetails.customerInfo.whatsapp,
+        shipping_address: orderDetails.customerInfo.address,
+        shipping_city: orderDetails.customerInfo.city,
+        customer_whatsapp: orderDetails.customerInfo.whatsapp,
         payment_method: orderDetails.paymentMethod
       };
 
-      console.log('📧 Preparando email de confirmación:', emailTemplateParams);
+      console.log('📧 Enviando email de confirmación al cliente:', customerEmailParams);
       
       // Enviar email de confirmación
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailTemplateParams, EMAILJS_PUBLIC_KEY);
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CUSTOMER_TEMPLATE_ID, customerEmailParams, EMAILJS_PUBLIC_KEY);
       console.log('✅ Email de confirmación enviado exitosamente');
+      
+      // Email para el negocio (usando el mismo template por ahora)
+      const businessEmailParams = {
+        to_email: 'scentmartperfumes@gmail.com',
+        to_name: 'ScentMart Perfumes',
+        customer_name: orderDetails.customerInfo.name,
+        order_number: orderDetails.id,
+        order_date: new Date(orderDetails.orderDate).toLocaleDateString('es-CO', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        }),
+        order_items: itemsList,
+        subtotal: formatPrice(orderDetails.total),
+        shipping_cost: 'GRATIS',
+        total_amount: formatPrice(orderDetails.total),
+        shipping_address: orderDetails.customerInfo.address,
+        shipping_city: orderDetails.customerInfo.city,
+        customer_whatsapp: orderDetails.customerInfo.whatsapp,
+        customer_email: orderDetails.customerInfo.email,
+        payment_method: orderDetails.paymentMethod
+      };
+
+      console.log('📧 Enviando notificación al negocio:', businessEmailParams);
+      
+      // Enviar notificación al negocio
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CUSTOMER_TEMPLATE_ID, businessEmailParams, EMAILJS_PUBLIC_KEY);
+      console.log('✅ Notificación enviada exitosamente al negocio');
       
     } catch (error) {
       console.error('❌ Error enviando email de confirmación:', error);
