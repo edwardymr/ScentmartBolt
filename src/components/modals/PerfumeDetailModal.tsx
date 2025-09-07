@@ -21,15 +21,15 @@ export default function PerfumeDetailModal({
 }: PerfumeDetailModalProps) {
   const [editedPerfume, setEditedPerfume] = useState<Perfume | null>(null);
 
-  if (!isOpen || !perfume) return null;
-
-  const currentPerfume = isAdminMode ? (editedPerfume || perfume) : perfume;
-
   React.useEffect(() => {
     if (isAdminMode && perfume) {
       setEditedPerfume({ ...perfume });
     }
   }, [isAdminMode, perfume]);
+
+  if (!isOpen || !perfume) return null;
+
+  const currentPerfume = isAdminMode ? (editedPerfume || perfume) : perfume;
 
   const handleSave = () => {
     if (editedPerfume && onSave) {
