@@ -22,6 +22,7 @@ import QuizModal from './components/modals/QuizModal';
 import PerfumeDetailModal from './components/modals/PerfumeDetailModal';
 import SearchModal from './components/modals/SearchModal';
 import AdminLoginModal from './components/modals/AdminLoginModal';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 // Admin
 import AdminPage from './components/admin/AdminPage';
@@ -359,6 +360,9 @@ function App() {
           />
         ))}
       </div>
+
+      {/* Floating WhatsApp Button */}
+      <FloatingWhatsApp />
     </div>
   );
 }
