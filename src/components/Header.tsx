@@ -61,6 +61,12 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
               Inicio
             </button>
             <button 
+              onClick={() => handleNavigationClick('bestsellers')}
+              className="text-white hover:text-amber-400 transition-colors font-medium"
+            >
+              Más Vendidos
+            </button>
+            <button 
               onClick={() => handleNavigationClick('catalog')}
               className="text-white hover:text-amber-400 transition-colors font-medium"
             >
@@ -71,12 +77,6 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
               className="text-white hover:text-amber-400 transition-colors font-medium"
             >
               Nosotros
-            </button>
-            <button 
-              onClick={() => handleNavigationClick('bestsellers')}
-              className="text-white hover:text-amber-400 transition-colors font-medium"
-            >
-              Más Vendidos
             </button>
           </nav>
 
