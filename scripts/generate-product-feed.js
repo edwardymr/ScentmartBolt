@@ -407,7 +407,7 @@ const perfumes = [
 // CONFIGURACIÓN IMPORTANTE - CAMBIAR ANTES DE USAR
 const STORE_CONFIG = {
   // ⚠️ CAMBIAR POR TU DOMINIO REAL
-  baseUrl: 'https://your-scentmart-domain.com',
+  baseUrl: 'https://scentmartbold.netlify.app/',
   
   // Información de la tienda
   storeName: 'ScentMart Perfumes',
