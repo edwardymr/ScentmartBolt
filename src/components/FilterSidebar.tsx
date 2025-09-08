@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import React from 'react';
+import { X } from 'lucide-react';
 
 interface FilterSidebarProps {
   selectedGenders: string[];
@@ -20,19 +20,6 @@ export default function FilterSidebar({
   onPriceChange,
   onClearFilters
 }: FilterSidebarProps) {
-  const [expandedSections, setExpandedSections] = useState({
-    gender: true,
-    family: true,
-    price: true
-  });
-
-  const toggleSection = (section: string) => {
-    setExpandedSections(prev => ({
-      ...prev,
-      [section]: !prev[section as keyof typeof prev]
-    }));
-  };
-
   const handleGenderToggle = (gender: string) => {
     const updated = selectedGenders.includes(gender)
       ? selectedGenders.filter(g => g !== gender)
@@ -50,113 +37,134 @@ export default function FilterSidebar({
   const genders = ['Mujer', 'Hombre', 'Unisex'];
   const families = ['Floral', 'Oriental', 'Amaderado', 'Cítrico', 'Aromático'];
 
+  const hasActiveFilters = selectedGenders.length > 0 || selectedFamilies.length > 0 || 
+    priceRange[0] !== 30000 || priceRange[1] !== 80000;
+
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 h-fit">
-      <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-slate-800">Filtros</h3>
-        <button
-          onClick={onClearFilters}
-          className="text-orange-500 hover:text-orange-600 text-sm font-medium"
-        >
-          Limpiar filtros
-        </button>
-      </div>
-
-      {/* Gender Filter */}
-      <div className="border-b border-gray-200 pb-4 mb-4">
-        <button
-          onClick={() => toggleSection('gender')}
-          className="flex items-center justify-between w-full text-left"
-        >
-          <span className="font-medium text-slate-700">Género</span>
-          {expandedSections.gender ? (
-            <ChevronUp className="w-4 h-4 text-gray-500" />
-          ) : (
-            <ChevronDown className="w-4 h-4 text-gray-500" />
-          )}
-        </button>
-        
-        {expandedSections.gender && (
-          <div className="mt-3 space-y-2">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-3 mb-4">
+      {/* Filtros en una línea horizontal */}
+      <div className="flex flex-wrap items-center gap-4 text-xs">
+        {/* Género */}
+        <div className="flex items-center gap-2">
+          <span className="text-gray-600 font-medium whitespace-nowrap">Género:</span>
+          <div className="flex gap-1">
             {genders.map(gender => (
-              <label key={gender} className="flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={selectedGenders.includes(gender)}
-                  onChange={() => handleGenderToggle(gender)}
-                  className="w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500"
-                />
-                <span className="ml-2 text-sm text-gray-700">{gender}</span>
-              </label>
+              <button
+                key={gender}
+                onClick={() => handleGenderToggle(gender)}
+                className={`px-2 py-1 rounded-full text-xs font-medium transition-colors whitespace-nowrap ${
+                  selectedGenders.includes(gender)
+                    ? 'bg-orange-500 text-white'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                {gender}
+              </button>
             ))}
           </div>
-        )}
-      </div>
+        </div>
 
-      {/* Family Filter */}
-      <div className="border-b border-gray-200 pb-4 mb-4">
-        <button
-          onClick={() => toggleSection('family')}
-          className="flex items-center justify-between w-full text-left"
-        >
-          <span className="font-medium text-slate-700">Familia Olfativa</span>
-          {expandedSections.family ? (
-            <ChevronUp className="w-4 h-4 text-gray-500" />
-          ) : (
-            <ChevronDown className="w-4 h-4 text-gray-500" />
-          )}
-        </button>
-        
-        {expandedSections.family && (
-          <div className="mt-3 space-y-2">
+        {/* Separador */}
+        <div className="w-px h-4 bg-gray-300"></div>
+
+        {/* Familia */}
+        <div className="flex items-center gap-2">
+          <span className="text-gray-600 font-medium whitespace-nowrap">Familia:</span>
+          <div className="flex gap-1 flex-wrap">
             {families.map(family => (
-              <label key={family} className="flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={selectedFamilies.includes(family)}
-                  onChange={() => handleFamilyToggle(family)}
-                  className="w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500"
-                />
-                <span className="ml-2 text-sm text-gray-700">{family}</span>
-              </label>
+              <button
+                key={family}
+                onClick={() => handleFamilyToggle(family)}
+                className={`px-2 py-1 rounded-full text-xs font-medium transition-colors whitespace-nowrap ${
+                  selectedFamilies.includes(family)
+                    ? 'bg-orange-500 text-white'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                {family}
+              </button>
             ))}
           </div>
-        )}
-      </div>
+        </div>
 
-      {/* Price Filter */}
-      <div className="pb-4">
-        <button
-          onClick={() => toggleSection('price')}
-          className="flex items-center justify-between w-full text-left"
-        >
-          <span className="font-medium text-slate-700">Rango de Precio</span>
-          {expandedSections.price ? (
-            <ChevronUp className="w-4 h-4 text-gray-500" />
-          ) : (
-            <ChevronDown className="w-4 h-4 text-gray-500" />
-          )}
-        </button>
-        
-        {expandedSections.price && (
-          <div className="mt-4">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm text-gray-600">
-                ${priceRange[0].toLocaleString()} - ${priceRange[1].toLocaleString()}
-              </span>
-            </div>
+        {/* Separador */}
+        <div className="w-px h-4 bg-gray-300"></div>
+
+        {/* Precio */}
+        <div className="flex items-center gap-2">
+          <span className="text-gray-600 font-medium whitespace-nowrap">Precio:</span>
+          <div className="flex items-center gap-2">
             <input
               type="range"
-              min="25000"
-              max="75000"
+              min="30000"
+              max="80000"
               step="5000"
               value={priceRange[1]}
               onChange={(e) => onPriceChange([priceRange[0], parseInt(e.target.value)])}
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+              className="w-16 h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
             />
+            <span className="text-xs text-gray-600 font-medium whitespace-nowrap">
+              ${Math.round(priceRange[1]/1000)}K
+            </span>
           </div>
+        </div>
+
+        {/* Limpiar filtros */}
+        {hasActiveFilters && (
+          <>
+            <div className="w-px h-4 bg-gray-300"></div>
+            <button
+              onClick={onClearFilters}
+              className="flex items-center gap-1 text-orange-500 hover:text-orange-600 font-medium text-xs whitespace-nowrap"
+            >
+              <X className="w-3 h-3" />
+              Limpiar
+            </button>
+          </>
         )}
       </div>
+
+      {/* Filtros activos - línea adicional solo si hay filtros */}
+      {hasActiveFilters && (
+        <div className="flex items-center gap-2 mt-2 pt-2 border-t border-gray-100">
+          <span className="text-xs text-gray-500 font-medium">Activos:</span>
+          <div className="flex flex-wrap gap-1">
+            {selectedGenders.map(gender => (
+              <span key={gender} className="inline-flex items-center gap-1 bg-orange-100 text-orange-700 text-xs px-2 py-0.5 rounded-full">
+                {gender}
+                <button
+                  onClick={() => handleGenderToggle(gender)}
+                  className="hover:text-orange-900"
+                >
+                  <X className="w-2.5 h-2.5" />
+                </button>
+              </span>
+            ))}
+            {selectedFamilies.map(family => (
+              <span key={family} className="inline-flex items-center gap-1 bg-orange-100 text-orange-700 text-xs px-2 py-0.5 rounded-full">
+                {family}
+                <button
+                  onClick={() => handleFamilyToggle(family)}
+                  className="hover:text-orange-900"
+                >
+                  <X className="w-2.5 h-2.5" />
+                </button>
+              </span>
+            ))}
+            {(priceRange[0] !== 30000 || priceRange[1] !== 80000) && (
+              <span className="inline-flex items-center gap-1 bg-orange-100 text-orange-700 text-xs px-2 py-0.5 rounded-full">
+                Hasta ${Math.round(priceRange[1]/1000)}K
+                <button
+                  onClick={() => onPriceRange([30000, 80000])}
+                  className="hover:text-orange-900"
+                >
+                  <X className="w-2.5 h-2.5" />
+                </button>
+              </span>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

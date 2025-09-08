@@ -205,7 +205,7 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
               onTouchMove={handleDragMove}
               onTouchEnd={handleDragEnd}
             >
-              {bestsellers.map((perfume, index) => (
+              {bestsellers.map((perfume) => (
                 <div 
                   key={perfume.id} 
                   className="flex-shrink-0 px-1.5 lg:px-2"
