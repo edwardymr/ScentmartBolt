@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>ScentMart Perfumes</title>
+    <link>https://your-scentmart-domain.com</link>
+    <description>Tu Aroma, Tu Historia - Perfumes Premium en Santa Marta</description>
+    <item>
+      <g:id>1</g:id>
+      <g:title><![CDATA[BLEU INTENSE - L'BEL]]></g:title>
+      <g:description><![CDATA[Un aroma para el hombre poderoso como las olas que embisten las rocas, refrescante como el agua de un mar infinito, sin límites. Siente un aroma lleno de la energía y frescura del reventar de las olas del mar que, combinadas con intensas notas herbales de salvia, crean un perfume para hombre con energía sin límites.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/1</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/bleu-intense.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>70000 COP</g:price>
+      <g:sale_price>70000 COP</g:sale_price>
+      <g:brand><![CDATA[L'BEL]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Aromático > Hombre]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>hombre</g:gender>
+      <g:size><![CDATA[100ml]]></g:size>
+      <g:color><![CDATA[Aromático]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Parfum]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Bergamota, Limón, Salvia]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Haba tonka, Healingwood captive]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Musgo de roble de Yugoslavia, Ámbar]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Aromático]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>2</g:id>
+      <g:title><![CDATA[D'orsay - Esika]]></g:title>
+      <g:description><![CDATA[Una fragancia diseñada para el hombre auténtico y sofisticado que busca destacar con un aroma intenso y elegante.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/2</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/dorsay.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>63000 COP</g:price>
+      <g:sale_price>63000 COP</g:sale_price>
+      <g:brand><![CDATA[Esika]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Amaderado > Hombre]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>hombre</g:gender>
+      <g:size><![CDATA[90ml]]></g:size>
+      <g:color><![CDATA[Amaderado]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Parfum]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Bergamota, Toronja]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Cardamomo, Pimienta negra]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Madera de cedro, Ámbar]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Amaderado]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>3</g:id>
+      <g:title><![CDATA[Dancing - Cyzone]]></g:title>
+      <g:description><![CDATA[Un perfume fresco y juvenil que captura la energía y la libertad de la danza. Expresa la alegría y espontaneidad de la mujer joven que vive con pasión.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/3</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/dancing.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>35000 COP</g:price>
+      <g:sale_price>35000 COP</g:sale_price>
+      <g:brand><![CDATA[Cyzone]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Floral > Mujer]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>mujer</g:gender>
+      <g:size><![CDATA[90ml]]></g:size>
+      <g:color><![CDATA[Floral]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Toilette]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Bergamota, Mandarina]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Jazmín, Rosa]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Vainilla, Sándalo]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Floral]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>4</g:id>
+      <g:title><![CDATA[Expression - Esika]]></g:title>
+      <g:description><![CDATA[Un perfume que refleja la esencia de una mujer audaz y expresiva, con un aroma vibrante y sofisticado. Celebra la autenticidad y la libertad de expresión de la mujer moderna.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/4</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/expression.jpg</g:image_link>
+      <g:availability>out of stock</g:availability>
+      <g:price>38000 COP</g:price>
+      <g:sale_price>38000 COP</g:sale_price>
+      <g:brand><![CDATA[Esika]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Floral > Mujer]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>mujer</g:gender>
+      <g:size><![CDATA[50ml]]></g:size>
+      <g:color><![CDATA[Floral]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Parfum]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Frutas rojas, Mandarina]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Peonía, Jazmín]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Vainilla, Ámbar]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Floral]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>5</g:id>
+      <g:title><![CDATA[Fantasía Azul - Esika]]></g:title>
+      <g:description><![CDATA[Un aroma fresco y ligero que evoca la libertad y los sueños infinitos. Inspirado en la libertad y la imaginación sin límites.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/5</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/fantasia-azul.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>50000 COP</g:price>
+      <g:sale_price>50000 COP</g:sale_price>
+      <g:brand><![CDATA[Esika]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Floral > Mujer]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>mujer</g:gender>
+      <g:size><![CDATA[50ml]]></g:size>
+      <g:color><![CDATA[Floral]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Toilette]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Manzana, Pera]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Flores blancas, Jazmín]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Almizcle, Ámbar]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Floral]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>6</g:id>
+      <g:title><![CDATA[Fantasia Radiante - Esika]]></g:title>
+      <g:description><![CDATA[Un perfume que irradia feminidad y alegría con un toque cálido y envolvente. Representa la energía radiante y la feminidad vibrante.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/6</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/fantasia-radiante.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>50000 COP</g:price>
+      <g:sale_price>50000 COP</g:sale_price>
+      <g:brand><![CDATA[Esika]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Floral > Mujer]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>mujer</g:gender>
+      <g:size><![CDATA[50ml]]></g:size>
+      <g:color><![CDATA[Floral]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Parfum]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Frutas tropicales, Cítricos]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Rosa, Jazmín]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Vainilla, Praliné]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Floral]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>7</g:id>
+      <g:title><![CDATA[Girlink - Cyzone]]></g:title>
+      <g:description><![CDATA[Una fragancia divertida y juvenil que combina frescura y dulzura para la mujer moderna. Captura la esencia de la juventud y la diversión.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/7</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/girlink.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>38000 COP</g:price>
+      <g:sale_price>38000 COP</g:sale_price>
+      <g:brand><![CDATA[Cyzone]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Floral > Mujer]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>mujer</g:gender>
+      <g:size><![CDATA[50ml]]></g:size>
+      <g:color><![CDATA[Floral]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Toilette]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Frutas rojas, Cítricos]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Flores blancas, Jazmín]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Almizcle, Vainilla]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Floral]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>8</g:id>
+      <g:title><![CDATA[In Love Passion - Cyzone]]></g:title>
+      <g:description><![CDATA[Un perfume que despierta la pasión y el romanticismo con un aroma envolvente. Evoca el amor apasionado y la conexión emocional.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/8</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/in-love-passion.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>45000 COP</g:price>
+      <g:sale_price>45000 COP</g:sale_price>
+      <g:brand><![CDATA[Cyzone]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Floral > Mujer]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>mujer</g:gender>
+      <g:size><![CDATA[50ml]]></g:size>
+      <g:color><![CDATA[Floral]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Parfum]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Frutos rojos, Mandarina]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Rosa, Jazmín]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Vainilla, Almizcle]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Floral]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>9</g:id>
+      <g:title><![CDATA[L'image - Esika]]></g:title>
+      <g:description><![CDATA[Una fragancia elegante y sofisticada que resalta la feminidad y el estilo único. Representa la elegancia y la confianza de la mujer contemporánea.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/9</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/limage.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>64000 COP</g:price>
+      <g:sale_price>64000 COP</g:sale_price>
+      <g:brand><![CDATA[Esika]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Floral > Mujer]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>mujer</g:gender>
+      <g:size><![CDATA[50ml]]></g:size>
+      <g:color><![CDATA[Floral]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Parfum]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Bergamota, Pera]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Jazmín, Rosa]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Sándalo, Vainilla]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Floral]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>10</g:id>
+      <g:title><![CDATA[Leyenda Absolute - Esika]]></g:title>
+      <g:description><![CDATA[Un aroma intenso y masculino que evoca fuerza y carisma. Inspirado en el hombre legendario y carismático.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/10</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/leyenda-absolute.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>75000 COP</g:price>
+      <g:sale_price>75000 COP</g:sale_price>
+      <g:brand><![CDATA[Esika]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Amaderado > Hombre]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>hombre</g:gender>
+      <g:size><![CDATA[100ml]]></g:size>
+      <g:color><![CDATA[Amaderado]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Parfum]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Cítricos, Bergamota]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Cardamomo, Lavanda]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Madera de cedro, Ámbar]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Amaderado]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>11</g:id>
+      <g:title><![CDATA[LIASSON - L'BEL]]></g:title>
+      <g:description><![CDATA[Un perfume que combina sensualidad y sofisticación para la mujer moderna. Representa una conexión emocional y sensual.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/11</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/liasson.jpg</g:image_link>
+      <g:availability>out of stock</g:availability>
+      <g:price>70000 COP</g:price>
+      <g:sale_price>70000 COP</g:sale_price>
+      <g:brand><![CDATA[L'BEL]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Oriental > Mujer]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>mujer</g:gender>
+      <g:size><![CDATA[50ml]]></g:size>
+      <g:color><![CDATA[Oriental]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Parfum]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Frutas rojas, Bergamota]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Jazmín, Rosa]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Vainilla, Ámbar]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Oriental]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>12</g:id>
+      <g:title><![CDATA[Magnat - Esika]]></g:title>
+      <g:description><![CDATA[Una fragancia poderosa que refleja la fuerza y el magnetismo del hombre moderno. Exalta el carisma y la presencia magnética.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/12</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/magnat.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>75000 COP</g:price>
+      <g:sale_price>75000 COP</g:sale_price>
+      <g:brand><![CDATA[Esika]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Amaderado > Hombre]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>hombre</g:gender>
+      <g:size><![CDATA[90ml]]></g:size>
+      <g:color><![CDATA[Amaderado]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Parfum]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Toronja, Bergamota]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Pimienta negra, Cardamomo]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Madera de cedro, Ámbar]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Amaderado]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>13</g:id>
+      <g:title><![CDATA[Magnat Select - Esika]]></g:title>
+      <g:description><![CDATA[Un perfume sofisticado para el hombre que busca destacar con elegancia. Representa la distinción y el estilo refinado.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/13</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/magnat-select.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>75000 COP</g:price>
+      <g:sale_price>75000 COP</g:sale_price>
+      <g:brand><![CDATA[Esika]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Amaderado > Hombre]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>hombre</g:gender>
+      <g:size><![CDATA[90ml]]></g:size>
+      <g:color><![CDATA[Amaderado]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Parfum]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Cítricos, Toronja]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Lavanda, Cardamomo]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Madera de sándalo, Ámbar]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Amaderado]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>14</g:id>
+      <g:title><![CDATA[MITHYKA - L'BEL]]></g:title>
+      <g:description><![CDATA[Una fragancia mítica que resalta la feminidad y el poder de la mujer. Inspirado en la fuerza y el encanto de una diosa.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/14</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/mithyka.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>62000 COP</g:price>
+      <g:sale_price>62000 COP</g:sale_price>
+      <g:brand><![CDATA[L'BEL]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Oriental > Mujer]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>mujer</g:gender>
+      <g:size><![CDATA[50ml]]></g:size>
+      <g:color><![CDATA[Oriental]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Parfum]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Bergamota, Mandarina]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Rosa, Jazmín]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Vainilla, Pachulí]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Oriental]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>15</g:id>
+      <g:title><![CDATA[Nitro - Cyzone]]></g:title>
+      <g:description><![CDATA[Un perfume dinámico y juvenil que refleja energía y audacia. Captura la energía explosiva de la juventud.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/15</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/nitro.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>40000 COP</g:price>
+      <g:sale_price>40000 COP</g:sale_price>
+      <g:brand><![CDATA[Cyzone]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Cítrico > Hombre]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>hombre</g:gender>
+      <g:size><![CDATA[100ml]]></g:size>
+      <g:color><![CDATA[Cítrico]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Toilette]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Cítricos, Menta]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Cardamomo, Jengibre]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Madera de cedro, Almizcle]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Cítrico]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>16</g:id>
+      <g:title><![CDATA[Prints - Cyzone]]></g:title>
+      <g:description><![CDATA[Una fragancia fresca y divertida que resalta la personalidad vibrante de la mujer joven. Expresa la creatividad y la espontaneidad.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/16</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/prints.jpg</g:image_link>
+      <g:availability>out of stock</g:availability>
+      <g:price>35000 COP</g:price>
+      <g:sale_price>35000 COP</g:sale_price>
+      <g:brand><![CDATA[Cyzone]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Floral > Mujer]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>mujer</g:gender>
+      <g:size><![CDATA[30ml]]></g:size>
+      <g:color><![CDATA[Floral]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Toilette]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Frutas rojas, Cítricos]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Jazmín, Peonía]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Vainilla, Almizcle]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Floral]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>17</g:id>
+      <g:title><![CDATA[Pulso Absolute - Esika]]></g:title>
+      <g:description><![CDATA[Un aroma intenso que refleja la fuerza y el carácter del hombre moderno. Representa la energía y el pulso vibrante del hombre actual.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/17</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/pulso-absolute.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>70000 COP</g:price>
+      <g:sale_price>70000 COP</g:sale_price>
+      <g:brand><![CDATA[Esika]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Amaderado > Hombre]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>hombre</g:gender>
+      <g:size><![CDATA[100ml]]></g:size>
+      <g:color><![CDATA[Amaderado]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Parfum]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Bergamota, Limón]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Lavanda, Cardamomo]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Madera de cedro, Ámbar]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Amaderado]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>18</g:id>
+      <g:title><![CDATA[SATIN ROUGE - L'BEL]]></g:title>
+      <g:description><![CDATA[Un perfume sensual y elegante que envuelve con su calidez y sofisticación. Evoca sensualidad y feminidad con un toque de lujo.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/18</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/satin-rouge.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>60000 COP</g:price>
+      <g:sale_price>60000 COP</g:sale_price>
+      <g:brand><![CDATA[L'BEL]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Oriental > Mujer]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>mujer</g:gender>
+      <g:size><![CDATA[50ml]]></g:size>
+      <g:color><![CDATA[Oriental]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Parfum]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Frutas rojas, Bergamota]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Rosa, Jazmín]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Vainilla, Praliné]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Oriental]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>19</g:id>
+      <g:title><![CDATA[Sweet Black Pink Addiction - Cyzone]]></g:title>
+      <g:description><![CDATA[Una fragancia dulce y adictiva que resalta la feminidad y la audacia. Captura la energía vibrante y seductora de la mujer joven.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/19</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/sweet-black-pink-addiction.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>43000 COP</g:price>
+      <g:sale_price>43000 COP</g:sale_price>
+      <g:brand><![CDATA[Cyzone]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Oriental > Mujer]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>mujer</g:gender>
+      <g:size><![CDATA[50ml]]></g:size>
+      <g:color><![CDATA[Oriental]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Parfum]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Frutas rojas, Mandarina]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Jazmín, Rosa]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Vainilla, Praliné]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Oriental]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>20</g:id>
+      <g:title><![CDATA[Vibranza - Esika]]></g:title>
+      <g:description><![CDATA[Un perfume que irradia vitalidad y frescura, ideal para la mujer dinámica. Representa la energía y la vitalidad de la mujer moderna.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/20</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/vibranza.jpg</g:image_link>
+      <g:availability>out of stock</g:availability>
+      <g:price>65000 COP</g:price>
+      <g:sale_price>65000 COP</g:sale_price>
+      <g:brand><![CDATA[Esika]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Floral > Mujer]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>mujer</g:gender>
+      <g:size><![CDATA[45ml]]></g:size>
+      <g:color><![CDATA[Floral]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Parfum]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Cítricos, Bergamota]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Jazmín, Peonía]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Vainilla, Almizcle]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Floral]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+    <item>
+      <g:id>21</g:id>
+      <g:title><![CDATA[You - Esika]]></g:title>
+      <g:description><![CDATA[Una fragancia fresca y moderna que refleja autenticidad y libertad. Inspirado en la libertad y la autenticidad del espíritu joven.]]></g:description>
+      <g:link>https://your-scentmart-domain.com/product/21</g:link>
+      <g:image_link>https://your-scentmart-domain.com/images/products/you.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>45000 COP</g:price>
+      <g:sale_price>45000 COP</g:sale_price>
+      <g:brand><![CDATA[Esika]]></g:brand>
+      <g:condition>new</g:condition>
+      <g:product_type><![CDATA[Perfumes > Aromático > Unisex]]></g:product_type>
+      <g:google_product_category>469</g:google_product_category>
+      <g:gender>unisex</g:gender>
+      <g:size><![CDATA[90ml]]></g:size>
+      <g:color><![CDATA[Aromático]]></g:color>
+      <g:custom_label_0><![CDATA[Eau de Toilette]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Cítricos, Toronja]]></g:custom_label_1>
+      <g:custom_label_2><![CDATA[Lavanda, Cardamomo]]></g:custom_label_2>
+      <g:custom_label_3><![CDATA[Madera de cedro, Ámbar]]></g:custom_label_3>
+      <g:custom_label_4><![CDATA[Aromático]]></g:custom_label_4>
+      <g:shipping>
+        <g:country>CO</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 COP</g:price>
+      </g:shipping>
+      <g:shipping_weight>0.5 kg</g:shipping_weight>
+    </item>
+  </channel>
+</rss>

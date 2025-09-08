@@ -1,7 +1,12 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// Importar datos de perfumes (simulamos la importación)
+// Para obtener __dirname en módulos ES
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Datos de perfumes (copiados directamente para evitar problemas de importación)
 const perfumes = [
   {
     id: '1',
@@ -407,7 +412,7 @@ const perfumes = [
 // CONFIGURACIÓN IMPORTANTE - CAMBIAR ANTES DE USAR
 const STORE_CONFIG = {
   // ⚠️ CAMBIAR POR TU DOMINIO REAL
-  baseUrl: 'https://scentmartbold.netlify.app/',
+  baseUrl: 'https://your-scentmart-domain.com',
   
   // Información de la tienda
   storeName: 'ScentMart Perfumes',
@@ -670,11 +675,9 @@ const main = () => {
 };
 
 // Ejecutar si se llama directamente
-if (require.main === module) {
-  main();
-}
+main();
 
-module.exports = {
+export {
   generateCSVFeed,
   generateXMLFeed,
   generateProductReport,

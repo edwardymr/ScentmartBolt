@@ -1,0 +1,49 @@
+
+📈 REPORTE DE CATÁLOGO SCENTMART
+===============================
+
+📊 ESTADÍSTICAS GENERALES:
+• Total de productos: 21
+• Productos en stock: 17
+• Productos agotados: 4
+• Productos con descuento: 21
+
+🏷️ POR MARCA:
+• L'BEL: 4 productos
+• Esika: 11 productos
+• Cyzone: 6 productos
+
+🌸 POR FAMILIA OLFATIVA:
+• Aromático: 2 productos
+• Amaderado: 5 productos
+• Floral: 9 productos
+• Oriental: 4 productos
+• Cítrico: 1 productos
+
+👥 POR GÉNERO:
+• Hombre: 7 productos
+• Mujer: 13 productos
+• Unisex: 1 productos
+
+⚠️ PRODUCTOS AGOTADOS:
+• Expression (Esika)
+• LIASSON (L'BEL)
+• Prints (Cyzone)
+• Vibranza (Esika)
+
+💰 RANGO DE PRECIOS:
+• Precio mínimo: $35.000 COP
+• Precio máximo: $75.000 COP
+• Precio promedio: $55.619 COP
+
+🔗 CONFIGURACIÓN ACTUAL:
+• Dominio base: https://your-scentmart-domain.com
+• Envío gratis en: Santa Marta, Colombia
+• WhatsApp: +573213200601
+• Email: scentmartperfumes@gmail.com
+
+⚠️ IMPORTANTE:
+Antes de subir los feeds a Facebook Commerce Manager:
+1. Cambiar STORE_CONFIG.baseUrl por tu dominio real
+2. Verificar que las imágenes sean accesibles públicamente
+3. Configurar páginas de producto individuales si es necesario
