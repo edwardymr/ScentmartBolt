@@ -132,9 +132,19 @@ export const emailService = {
 ${itemsList}
 
 💰 *Resumen de Pago:*
+• Subtotal: ${formatPrice(orderDetails.total - orderDetails.shippingCost)}
+${orderDetails.shippingCost > 0 ? `• Envío: ${formatPrice(orderDetails.shippingCost)}` : '• Envío: GRATIS (Santa Marta)'}
 • Método: ${orderDetails.paymentMethod}
 • Total: *${formatPrice(orderDetails.total)}*
 
+${orderDetails.paymentMethod === 'Transferencia Bancaria' ? `
+🏦 *PROCESO DE PAGO NACIONAL:*
+1. Datos bancarios serán enviados por WhatsApp
+2. Cliente debe enviar comprobante de transferencia
+3. Procesar envío una vez confirmado el pago
+
+⚠️ *IMPORTANTE:* Envío nacional - Requiere transferencia bancaria
+` : ''}
 ✅ Estado: ${orderDetails.status}
 
 ---

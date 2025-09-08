@@ -136,7 +136,10 @@ export default function CartPage({
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Envío</span>
-                  <span className="font-semibold text-green-600">Gratis</span>
+                  <span className="font-semibold text-green-600">Gratis en Santa Marta</span>
+                </div>
+                <div className="text-xs text-gray-500">
+                  *Envío nacional: $16.000 (se calcula en checkout)
                 </div>
                 <div className="border-t pt-3">
                   <div className="flex justify-between">
@@ -144,6 +147,9 @@ export default function CartPage({
                     <span className="text-lg font-bold text-orange-500">
                       {formatPrice(subtotal)}
                     </span>
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1">
+                    + envío (si aplica)
                   </div>
                 </div>
               </div>

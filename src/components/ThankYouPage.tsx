@@ -57,6 +57,12 @@ export default function ThankYouPage({ orderDetails, onBackToHome }: ThankYouPag
                       {formatPrice(orderDetails.total)}
                     </span>
                   </div>
+                  {orderDetails.shippingCost > 0 && (
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Envío:</span>
+                      <span className="font-semibold">{formatPrice(orderDetails.shippingCost)}</span>
+                    </div>
+                  )}
                   <div className="flex justify-between">
                     <span className="text-gray-600">Método de Pago:</span>
                     <span className="font-semibold">{orderDetails.paymentMethod}</span>

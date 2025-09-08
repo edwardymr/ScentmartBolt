@@ -85,17 +85,6 @@ export default function Footer({ onAdminAccess }: FooterProps) {
                   scentmartperfumes@gmail.com
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-amber-400" />
-                <a 
-                  href="https://maps.app.goo.gl/bFwCXU77dFb1UEL57" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-300 text-sm hover:text-amber-400 transition-colors"
-                >
-                  Mz X Casa 32 B. Cantilito, Santa Marta
-                </a>
-              </li>
             </ul>
           </div>
 

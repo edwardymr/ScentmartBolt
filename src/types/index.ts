@@ -37,6 +37,7 @@ export interface OrderDetails {
   };
   paymentMethod: string;
   total: number;
+  shippingCost: number;
   orderDate: string;
   status: string;
 }

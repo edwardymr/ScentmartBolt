@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Package, CreditCard, Smartphone } from 'lucide-react';
+import { ArrowLeft, Package, CreditCard, Smartphone, Truck, MapPin } from 'lucide-react';
 import { CartItem, OrderDetails } from '../types';
 
 interface CheckoutPageProps {
@@ -17,11 +17,29 @@ export default function CheckoutPage({ cartItems, onBack, onPlaceOrder }: Checko
     email: ''
   });
   const [paymentMethod, setPaymentMethod] = useState('cod');
+  const [shippingCost, setShippingCost] = useState(0);
+  const [isOutsideSantaMarta, setIsOutsideSantaMarta] = useState(false);
 
   const subtotal = cartItems.reduce((sum, item) => sum + (item.perfume.price * item.quantity), 0);
+  const total = subtotal + shippingCost;
 
   const handleInputChange = (field: string, value: string) => {
-    setCustomerInfo(prev => ({ ...prev, [field]: value }));
+    const updatedInfo = { ...customerInfo, [field]: value };
+    setCustomerInfo(updatedInfo);
+    
+    // Check if city is outside Santa Marta
+    if (field === 'city') {
+      const isOutside = !value.toLowerCase().includes('santa marta') && value.trim() !== '';
+      setIsOutsideSantaMarta(isOutside);
+      setShippingCost(isOutside ? 16000 : 0);
+      
+      // Reset payment method if city changes
+      if (isOutside) {
+        setPaymentMethod('transfer');
+      } else {
+        setPaymentMethod('cod');
+      }
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -31,8 +49,9 @@ export default function CheckoutPage({ cartItems, onBack, onPlaceOrder }: Checko
       id: `ORD-${Date.now()}`,
       items: cartItems,
       customerInfo,
-      paymentMethod: paymentMethod === 'cod' ? 'Pagar al Recibir' : 'Tarjeta',
-      total: subtotal,
+      paymentMethod: paymentMethod === 'cod' ? 'Pagar al Recibir' : 'Transferencia Bancaria',
+      total: total,
+      shippingCost,
       orderDate: new Date().toISOString(),
       status: 'Pendiente'
     };
@@ -116,8 +135,36 @@ export default function CheckoutPage({ cartItems, onBack, onPlaceOrder }: Checko
                       required
                       value={customerInfo.city}
                       onChange={(e) => handleInputChange('city', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                      className={`w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500 ${
+                        isOutsideSantaMarta ? 'border-blue-300 bg-blue-50' : 'border-gray-300'
+                      }`}
+                      placeholder="Ej: Santa Marta, Barranquilla, Bogotá..."
                     />
+                    {isOutsideSantaMarta && (
+                      <div className="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-md">
+                        <div className="flex items-center gap-2 text-blue-800 text-sm font-medium mb-1">
+                          <Truck className="w-4 h-4" />
+                          Envío Nacional
+                        </div>
+                        <p className="text-blue-700 text-sm">
+                          Costo de envío: <span className="font-semibold">{formatPrice(16000)}</span>
+                        </p>
+                        <p className="text-blue-600 text-xs mt-1">
+                          El pago se realizará por transferencia bancaria vía WhatsApp
+                        </p>
+                      </div>
+                    )}
+                    {!isOutsideSantaMarta && customerInfo.city && (
+                      <div className="mt-2 p-3 bg-green-50 border border-green-200 rounded-md">
+                        <div className="flex items-center gap-2 text-green-800 text-sm font-medium mb-1">
+                          <MapPin className="w-4 h-4" />
+                          Envío Local
+                        </div>
+                        <p className="text-green-700 text-sm font-semibold">
+                          ¡Envío GRATIS en Santa Marta!
+                        </p>
+                      </div>
+                    )}
                   </div>
 
                   <div>
@@ -166,30 +213,55 @@ export default function CheckoutPage({ cartItems, onBack, onPlaceOrder }: Checko
                       name="payment"
                       value="cod"
                       checked={paymentMethod === 'cod'}
-                      onChange={(e) => setPaymentMethod(e.target.value)}
+                      onChange={(e) => !isOutsideSantaMarta && setPaymentMethod(e.target.value)}
+                      disabled={isOutsideSantaMarta}
                       className="w-4 h-4 text-orange-500"
                     />
                     <Smartphone className="w-5 h-5 text-green-500" />
                     <div>
                       <div className="font-medium">Pagar al Recibir</div>
-                      <div className="text-sm text-gray-600">Paga cuando recibas tu pedido</div>
+                      <div className="text-sm text-gray-600">
+                        {isOutsideSantaMarta ? 'Solo disponible en Santa Marta' : 'Paga cuando recibas tu pedido'}
+                      </div>
                     </div>
                   </label>
 
-                  <label className="flex items-center gap-3 p-4 border border-gray-200 rounded-lg cursor-not-allowed opacity-50">
+                  <label className={`flex items-center gap-3 p-4 border rounded-lg cursor-pointer ${
+                    isOutsideSantaMarta 
+                      ? 'border-blue-300 bg-blue-50 hover:bg-blue-100' 
+                      : 'border-gray-200 cursor-not-allowed opacity-50'
+                  }`}>
                     <input
                       type="radio"
                       name="payment"
-                      value="card"
-                      disabled
+                      value="transfer"
+                      checked={paymentMethod === 'transfer'}
+                      onChange={(e) => setPaymentMethod(e.target.value)}
+                      disabled={!isOutsideSantaMarta}
                       className="w-4 h-4 text-orange-500"
                     />
                     <CreditCard className="w-5 h-5 text-blue-500" />
                     <div>
-                      <div className="font-medium">Tarjeta de Crédito/Débito</div>
-                      <div className="text-sm text-gray-600">Próximamente disponible</div>
+                      <div className="font-medium">Transferencia Bancaria</div>
+                      <div className="text-sm text-gray-600">
+                        {isOutsideSantaMarta ? 'Proceso vía WhatsApp' : 'Solo para envíos nacionales'}
+                      </div>
                     </div>
                   </label>
+                  
+                  {isOutsideSantaMarta && (
+                    <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                      <h4 className="font-medium text-amber-800 mb-2">📱 Proceso de Pago Nacional</h4>
+                      <ol className="text-sm text-amber-700 space-y-1">
+                        <li>1. Confirma tu pedido aquí</li>
+                        <li>2. Te contactaremos por WhatsApp</li>
+                        <li>3. Te enviaremos los datos bancarios</li>
+                        <li>4. Realizas la transferencia</li>
+                        <li>5. Envías el comprobante por WhatsApp</li>
+                        <li>6. Procesamos tu envío inmediatamente</li>
+                      </ol>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -230,11 +302,18 @@ export default function CheckoutPage({ cartItems, onBack, onPlaceOrder }: Checko
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Envío</span>
-                    <span className="font-semibold text-green-600">Gratis</span>
+                    <span className={`font-semibold ${shippingCost === 0 ? 'text-green-600' : 'text-blue-600'}`}>
+                      {shippingCost === 0 ? 'Gratis' : formatPrice(shippingCost)}
+                    </span>
                   </div>
-                  <div className="flex justify-between text-lg font-bold pt-2 border-t">
+                  {isOutsideSantaMarta && (
+                    <div className="text-xs text-blue-600 italic">
+                      Envío nacional a {customerInfo.city}
+                    </div>
+                  )}
+                  <div className="flex justify-between text-lg font-bold border-t pt-2 mt-2">
                     <span>Total</span>
-                    <span className="text-orange-500">{formatPrice(subtotal)}</span>
+                    <span className="text-orange-500">{formatPrice(total)}</span>
                   </div>
                 </div>
 

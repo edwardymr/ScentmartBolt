@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Perfume, CartItem, OrderDetails, ToastNotification as ToastType } from './types';
 import { perfumes as initialPerfumes } from './data/perfumes';
 import { emailService } from './services/emailService';
+import { productSyncService } from './services/productSyncService';
 
 // Components
 import AnnouncementBar from './components/AnnouncementBar';
@@ -145,11 +146,19 @@ function App() {
     setPerfumes(prev => 
       prev.map(p => p.id === updatedPerfume.id ? updatedPerfume : p)
     );
+    
+    // Sincronizar automáticamente con Meta
+    productSyncService.onProductChange(updatedPerfume, 'updated');
+    
     showNotification('Producto actualizado exitosamente', 'success');
   };
 
   const handleAddPerfume = (newPerfume: Perfume) => {
     setPerfumes(prev => [...prev, newPerfume]);
+    
+    // Sincronizar automáticamente con Meta
+    productSyncService.onProductChange(newPerfume, 'created');
+    
     showNotification('Producto añadido al catálogo', 'success');
   };
 

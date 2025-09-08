@@ -4,6 +4,7 @@ import { Perfume, OrderDetails } from '../../types';
 import CatalogManagementPage from './CatalogManagementPage';
 import OrderManagementPage from './OrderManagementPage';
 import AddProductPage from './AddProductPage';
+import MetaSyncPanel from './MetaSyncPanel';
 
 interface AdminPageProps {
   perfumes: Perfume[];
@@ -13,6 +14,7 @@ interface AdminPageProps {
   onBackToStore: () => void;
 }
 
+const BASE_URL = 'https://your-scentmart-domain.com'; // TODO: Configurar con dominio real
 export default function AdminPage({ 
   perfumes, 
   orders, 
@@ -25,9 +27,10 @@ export default function AdminPage({
   const menuItems = [
     { id: 'catalog', label: 'Gestión de Catálogo', icon: Package },
     { id: 'orders', label: 'Gestión de Pedidos', icon: ShoppingBag },
+    { id: 'meta-sync', label: 'Sincronización Meta', icon: Settings },
     { id: 'add-product', label: 'Añadir Producto', icon: Plus },
     { id: 'brand', label: 'Identidad de Marca', icon: Palette },
-    { id: 'integrations', label: 'Integraciones', icon: Settings }
+    { id: 'integrations', label: 'Otras Integraciones', icon: Settings }
   ];
 
   const renderContent = () => {
@@ -41,6 +44,8 @@ export default function AdminPage({
         );
       case 'orders':
         return <OrderManagementPage orders={orders} />;
+      case 'meta-sync':
+        return <MetaSyncPanel perfumes={perfumes} baseUrl={BASE_URL} />;
       case 'add-product':
         return <AddProductPage onAddPerfume={onAddPerfume} />;
       case 'brand':
