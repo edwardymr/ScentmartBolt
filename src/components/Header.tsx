@@ -21,7 +21,6 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when clicking outside or on link
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
@@ -32,7 +31,7 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
 
     if (isMobileMenuOpen) {
       document.addEventListener('click', handleClickOutside);
-      document.body.style.overflow = 'hidden'; // Prevent scroll when menu is open
+      document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -44,7 +43,7 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
   }, [isMobileMenuOpen]);
 
   const handleNavigationClick = (section: string) => {
-    setIsMobileMenuOpen(false); // Close mobile menu
+    setIsMobileMenuOpen(false);
     onNavigate('home', section);
     setTimeout(() => {
       const element = document.getElementById(section);
@@ -69,19 +68,21 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
 
   return (
     <>
-      <header className={`fixed top-10 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled ? 'bg-slate-800/95 backdrop-blur-md shadow-lg' : 'bg-slate-800/90 backdrop-blur-sm'
-      }`}>
+      <header
+        className={`fixed top-10 left-0 right-0 z-40 transition-all duration-300 ${
+          isScrolled ? 'bg-slate-800/95 backdrop-blur-md shadow-lg' : 'bg-slate-800/90 backdrop-blur-sm'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div 
+            <div
               className="flex items-center space-x-2 cursor-pointer z-50"
               onClick={handleHomeClick}
             >
-              <img 
-                src="/images/logo-perfumes-instagram_post_1080x1080 (1).png" 
-                alt="ScentMart Logo" 
+              <img
+                src="/images/logo-scentmart.png"
+                alt="ScentMart Logo"
                 className="h-10 w-10 sm:h-12 sm:w-12 rounded-lg shadow-sm bg-white/10 p-1"
               />
               <div className="flex flex-col">
@@ -93,7 +94,7 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
               {navigationItems.map((item, index) => (
-                <button 
+                <button
                   key={index}
                   onClick={item.action}
                   className="text-white hover:text-amber-400 transition-colors duration-200 font-medium relative group"
@@ -107,7 +108,7 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
             {/* Tablet Navigation */}
             <nav className="hidden md:flex lg:hidden items-center space-x-4">
               {navigationItems.slice(0, 2).map((item, index) => (
-                <button 
+                <button
                   key={index}
                   onClick={item.action}
                   className="text-white hover:text-amber-400 transition-colors duration-200 font-medium text-sm"
@@ -115,7 +116,7 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
                   {item.label}
                 </button>
               ))}
-              <button 
+              <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="text-white hover:text-amber-400 transition-colors duration-200 p-1 mobile-menu-button"
               >
@@ -125,22 +126,22 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
 
             {/* Action Icons */}
             <div className="flex items-center space-x-2 sm:space-x-4">
-              <button 
+              <button
                 onClick={onOpenSearch}
                 className="text-white hover:text-amber-400 transition-colors duration-200 p-2 hover:bg-white/10 rounded-full"
                 aria-label="Buscar"
               >
                 <Search className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
-              
-              <button 
+
+              <button
                 className="text-white hover:text-amber-400 transition-colors duration-200 p-2 hover:bg-white/10 rounded-full hidden sm:block"
                 aria-label="Perfil"
               >
                 <User className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
-              
-              <button 
+
+              <button
                 onClick={onOpenCart}
                 className="text-white hover:text-amber-400 transition-colors duration-200 p-2 hover:bg-white/10 rounded-full relative"
                 aria-label="Carrito de compras"
@@ -154,7 +155,7 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
               </button>
 
               {/* Mobile Menu Button */}
-              <button 
+              <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="text-white hover:text-amber-400 transition-colors duration-200 p-2 hover:bg-white/10 rounded-full lg:hidden mobile-menu-button"
                 aria-label="Menú"
@@ -167,19 +168,23 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
       </header>
 
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-30 transition-opacity duration-300 lg:hidden ${
-        isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-      }`}>
+      <div
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-30 transition-opacity duration-300 lg:hidden ${
+          isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+      >
         {/* Mobile Menu Panel */}
-        <div className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-slate-800 shadow-2xl transform transition-transform duration-300 ease-out mobile-menu ${
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}>
+        <div
+          className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-slate-800 shadow-2xl transform transition-transform duration-300 ease-out mobile-menu ${
+            isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
           {/* Menu Header */}
           <div className="flex items-center justify-between p-6 border-b border-slate-700">
             <div className="flex items-center space-x-2">
-              <img 
-                src="/images/logo-perfumes-instagram_post_1080x1080 (1).png" 
-                alt="ScentMart Logo" 
+              <img
+                src="/images/logo-scentmart.png"
+                alt="ScentMart Logo"
                 className="h-8 w-8 rounded-md bg-white/10 p-1"
               />
               <div className="flex flex-col">
@@ -187,7 +192,7 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
                 <span className="text-amber-400 text-xs font-medium tracking-wide">PERFUMES</span>
               </div>
             </div>
-            <button 
+            <button
               onClick={() => setIsMobileMenuOpen(false)}
               className="text-white hover:text-amber-400 transition-colors duration-200 p-2"
             >
@@ -211,7 +216,7 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
           {/* Menu Footer */}
           <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-slate-700">
             <div className="flex items-center justify-center space-x-4">
-              <button 
+              <button
                 onClick={() => {
                   setIsMobileMenuOpen(false);
                   onOpenSearch();
@@ -220,7 +225,7 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
               >
                 <Search className="w-5 h-5" />
               </button>
-              <button 
+              <button
                 onClick={() => {
                   setIsMobileMenuOpen(false);
                   onOpenCart();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Mail, Phone, MapPin, Shield, Key } from 'lucide-react';
+import { Instagram, Mail, Phone, Key } from 'lucide-react';
 
 interface FooterProps {
   onAdminAccess: () => void;
@@ -13,15 +13,15 @@ export default function Footer({ onAdminAccess }: FooterProps) {
           {/* Brand Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <img 
-                src="/images/logo-perfumes-instagram_post_1080x1080 (1).png" 
-                alt="ScentMart Logo" 
-               className="h-10 w-10 rounded-md bg-white/10 p-1"
+              <img
+                src="/images/logo-scentmart.png"
+                alt="ScentMart Logo"
+                className="h-10 w-10 rounded-md bg-white/10 p-1"
               />
-             <div className="flex flex-col">
-               <span className="text-xl font-serif font-bold leading-tight">ScentMart</span>
-               <span className="text-amber-400 text-xs font-medium tracking-wide">PERFUMES</span>
-             </div>
+              <div className="flex flex-col">
+                <span className="text-xl font-serif font-bold leading-tight">ScentMart</span>
+                <span className="text-amber-400 text-xs font-medium tracking-wide">PERFUMES</span>
+              </div>
             </div>
             <p className="text-gray-300 mb-4 leading-relaxed">
               Tu destino para paisajes olfativos únicos. Cada fragancia cuenta una historia, 
