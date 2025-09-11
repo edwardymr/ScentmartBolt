@@ -19,8 +19,7 @@ export default function Footer({ onAdminAccess }: FooterProps) {
                 className="h-10 w-10 rounded-md bg-white/10 p-1"
               />
               <div className="flex flex-col">
-                <span className="text-xl font-serif font-bold leading-tight">ScentMart</span>
-                <span className="text-amber-400 text-xs font-medium tracking-wide">PERFUMES</span>
+                <span className="text-xl font-serif font-bold leading-tight">MisAromas</span>
               </div>
             </div>
             <p className="text-gray-300 mb-4 leading-relaxed">
@@ -110,7 +109,7 @@ export default function Footer({ onAdminAccess }: FooterProps) {
         {/* Bottom Border */}
         <div className="border-t border-gray-700 mt-12 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © 2025 ScentMart Perfumes. Todos los derechos reservados.
+            © 2025 MisAromas. Todos los derechos reservados.
           </p>
         </div>
       </div>
