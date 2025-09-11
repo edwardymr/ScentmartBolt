@@ -30,7 +30,7 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-            Sobre ScentMart
+            Sobre MisAromas
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Somos más que una tienda de perfumes. Creamos paisajes olfativos que despiertan 

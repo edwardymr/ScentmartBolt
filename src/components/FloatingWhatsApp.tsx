@@ -16,7 +16,7 @@ export default function FloatingWhatsApp() {
 
   const handleWhatsAppClick = () => {
     const phoneNumber = '573213200601';
-    const message = encodeURIComponent('¡Hola! Me interesa conocer más sobre los perfumes de ScentMart 🌸');
+    const message = encodeURIComponent('¡Hola! Me interesa conocer más sobre los perfumes de MisAromas 🌸');
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');

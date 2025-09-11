@@ -86,8 +86,7 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
                 className="h-10 w-10 sm:h-12 sm:w-12 rounded-lg shadow-sm bg-white/10 p-1"
               />
               <div className="flex flex-col">
-                <span className="text-white font-serif text-lg sm:text-xl font-bold leading-tight">ScentMart</span>
-                <span className="text-amber-400 text-xs font-medium tracking-wide">PERFUMES</span>
+                <span className="text-white font-serif text-lg sm:text-xl font-bold leading-tight">MisAromas</span>
               </div>
             </div>
 
@@ -188,8 +187,7 @@ export default function Header({ cartItemsCount, onNavigate, onOpenSearch, onOpe
                 className="h-8 w-8 rounded-md bg-white/10 p-1"
               />
               <div className="flex flex-col">
-                <span className="text-white font-serif text-lg font-bold leading-tight">ScentMart</span>
-                <span className="text-amber-400 text-xs font-medium tracking-wide">PERFUMES</span>
+                <span className="text-white font-serif text-lg font-bold leading-tight">MisAromas</span>
               </div>
             </div>
             <button

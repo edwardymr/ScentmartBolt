@@ -14,7 +14,7 @@ interface AdminPageProps {
   onBackToStore: () => void;
 }
 
-const BASE_URL = 'https://your-scentmart-domain.com'; // TODO: Configurar con dominio real
+const BASE_URL = 'https://www.misaromas.com'; // TODO: Configurar con dominio real
 export default function AdminPage({ 
   perfumes, 
   orders, 
