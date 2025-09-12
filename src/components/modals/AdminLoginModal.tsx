@@ -63,7 +63,7 @@ export default function AdminLoginModal({ isOpen, onClose, onLogin }: AdminLogin
               <h2 className="text-xl font-serif font-bold text-slate-800">
                 Acceso Administrador
               </h2>
-              <p className="text-sm text-gray-600">Panel de gestión ScentMart</p>
+              <p className="text-sm text-gray-600">Panel de gestión MisAromas</p>
             </div>
           </div>
           <button

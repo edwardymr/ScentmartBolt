@@ -78,4 +78,4 @@ class ProductSyncService {
   }
 }
 
-export const productSyncService = new ProductSyncService('https://your-scentmart-domain.com');
+export const productSyncService = new ProductSyncService('https://www.misaromas.com');

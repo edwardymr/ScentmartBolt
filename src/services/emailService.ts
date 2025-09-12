@@ -58,8 +58,8 @@ export const emailService = {
       
       // Email para el negocio (usando el mismo template por ahora)
       const businessEmailParams = {
-        to_email: 'scentmartperfumes@gmail.com',
-        to_name: 'ScentMart Perfumes',
+        to_email: 'misaromas.store@gmail.com',
+        to_name: 'MisAromas',
         customer_name: orderDetails.customerInfo.name,
         order_number: orderDetails.id,
         order_date: new Date(orderDetails.orderDate).toLocaleDateString('es-CO', {
@@ -107,7 +107,7 @@ export const emailService = {
         `• ${item.perfume.name} (${item.perfume.brand})\n  Cantidad: ${item.quantity} - ${formatPrice(item.perfume.price * item.quantity)}`
       ).join('\n\n');
 
-      const whatsappMessage = `🌸 *NUEVO PEDIDO - SCENTMART* 🌸
+      const whatsappMessage = `🌸 *NUEVO PEDIDO - MisAromas* 🌸
 
 📋 *Detalles del Pedido:*
 • Número: ${orderDetails.id}
@@ -148,7 +148,7 @@ ${orderDetails.paymentMethod === 'Transferencia Bancaria' ? `
 ✅ Estado: ${orderDetails.status}
 
 ---
-*ScentMart Perfumes*
+*MisAromas*
 Tu Aroma, Tu Historia 🌸`;
 
       // Send WhatsApp message to business number
@@ -182,7 +182,7 @@ Tu Aroma, Tu Historia 🌸`;
         }).format(price);
       };
 
-      const customerMessage = `🌸 *CONFIRMACIÓN DE PEDIDO - SCENTMART* 🌸
+      const customerMessage = `🌸 *CONFIRMACIÓN DE PEDIDO - MisAromas* 🌸
 
 ¡Hola ${orderDetails.customerInfo.name}! 👋
 
@@ -198,13 +198,13 @@ ${orderDetails.customerInfo.address}, ${orderDetails.customerInfo.city}
 
 💳 *Pago:* ${orderDetails.paymentMethod}
 
-¡Gracias por elegir ScentMart! 
+¡Gracias por elegir MisAromas! 
 Tu Aroma, Tu Historia 🌸
 
 ---
-*ScentMart Perfumes*
+*MisAromas*
 📞 +57 321 320 0601
-📧 scentmartperfumes@gmail.com`;
+📧 misaromas.store@gmail.com`;
 
       // Remove country code for customer WhatsApp
       const customerPhone = orderDetails.customerInfo.whatsapp.replace(/^\+?57/, '57');

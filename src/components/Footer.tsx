@@ -28,7 +28,7 @@ export default function Footer({ onAdminAccess }: FooterProps) {
             </p>
             <div className="flex items-center gap-4">
               <a 
-                href="https://www.instagram.com/_scentmart" 
+                href="https://www.instagram.com/misaromas.store" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-amber-400 transition-colors"
@@ -48,7 +48,7 @@ export default function Footer({ onAdminAccess }: FooterProps) {
                 </svg>
               </a>
               <a 
-                href="mailto:scentmartperfumes@gmail.com" 
+                href="mailto:misaromas.store@gmail.com" 
                 className="text-gray-300 hover:text-amber-400 transition-colors"
                 aria-label="Envíanos un correo"
               >
@@ -80,8 +80,8 @@ export default function Footer({ onAdminAccess }: FooterProps) {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-amber-400" />
-                <a href="mailto:scentmartperfumes@gmail.com" className="text-gray-300 text-sm hover:text-amber-400 transition-colors">
-                  scentmartperfumes@gmail.com
+                <a href="mailto:misaromas.store@gmail.com" className="text-gray-300 text-sm hover:text-amber-400 transition-colors">
+                  misaromas.store@gmail.com
                 </a>
               </li>
             </ul>
