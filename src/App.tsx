@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Perfume, CartItem, OrderDetails, ToastNotification as ToastType } from './types';
-import { perfumes as initialPerfumes } from './data/perfumes';
+import { supabase } from './lib/supabaseClient';
 import { emailService } from './services/emailService';
 import { productSyncService } from './services/productSyncService';
 
@@ -33,7 +33,22 @@ type View = 'home' | 'cart' | 'checkout' | 'thank-you' | 'admin';
 function App() {
   // State management
   const [currentView, setCurrentView] = useState<View>('home');
-  const [perfumes, setPerfumes] = useState<Perfume[]>(initialPerfumes);
+  const [perfumes, setPerfumes] = useState<Perfume[]>([]);
+
+    useEffect(() => {
+  const fetchPerfumes = async () => {
+    const { data, error } = await supabase.from('products').select('*');
+    if (error) {
+      console.error("Error cargando productos:", error);
+    } else {
+      setPerfumes(data || []);
+    }
+  };
+
+  fetchPerfumes();
+}, []);
+
+
   const [cart, setCart] = useState<CartItem[]>([]);
   const [orders, setOrders] = useState<OrderDetails[]>([]);
   const [recommendedPerfumes, setRecommendedPerfumes] = useState<string[]>([]);
@@ -142,25 +157,48 @@ function App() {
     setIsDetailModalOpen(true);
   };
 
-  const handleUpdatePerfume = (updatedPerfume: Perfume) => {
-    setPerfumes(prev => 
-      prev.map(p => p.id === updatedPerfume.id ? updatedPerfume : p)
-    );
-    
-    // Sincronizar automáticamente con Meta
-    productSyncService.onProductChange(updatedPerfume, 'updated');
-    
-    showNotification('Producto actualizado exitosamente', 'success');
-  };
+  const handleUpdatePerfume = async (updatedPerfume: Perfume) => {
+  try {
+    const { data, error } = await supabase
+      .from('products')
+      .update(updatedPerfume)
+      .eq('id', updatedPerfume.id)
+      .select();
 
-  const handleAddPerfume = (newPerfume: Perfume) => {
-    setPerfumes(prev => [...prev, newPerfume]);
-    
-    // Sincronizar automáticamente con Meta
+    if (error) throw error;
+
+    setPerfumes(prev =>
+      prev.map(p => p.id === updatedPerfume.id ? (data ? data[0] : updatedPerfume) : p)
+    );
+
+    productSyncService.onProductChange(updatedPerfume, 'updated');
+    showNotification('Producto actualizado en la base de datos', 'success');
+  } catch (error) {
+    console.error("Error actualizando perfume:", error);
+    showNotification('Error al actualizar el producto en la base de datos', 'error');
+  }
+};
+
+
+  const handleAddPerfume = async (newPerfume: Perfume) => {
+  try {
+    const { data, error } = await supabase
+      .from('products')
+      .insert([newPerfume])
+      .select();
+
+    if (error) throw error;
+
+    setPerfumes(prev => [...prev, ...(data || [])]);
+
     productSyncService.onProductChange(newPerfume, 'created');
-    
-    showNotification('Producto añadido al catálogo', 'success');
-  };
+    showNotification('Producto añadido al catálogo y guardado en la base de datos', 'success');
+  } catch (error) {
+    console.error("Error agregando perfume:", error);
+    showNotification('Error al guardar el producto en la base de datos', 'error');
+  }
+};
+
 
   // Order management
   const handlePlaceOrder = async (orderDetails: OrderDetails) => {

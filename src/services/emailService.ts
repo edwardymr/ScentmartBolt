@@ -1,4 +1,4 @@
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import { OrderDetails } from '../types';
 
 const WHATSAPP_BUSINESS_NUMBER = '573213200601';
