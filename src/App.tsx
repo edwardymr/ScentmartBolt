@@ -36,13 +36,15 @@ function App() {
   const [perfumes, setPerfumes] = useState<Perfume[]>([]);
 
     useEffect(() => {
-  const fetchPerfumes = async () => {
-    const { data, error } = await supabase.from('products').select('*');
-    if (error) {
-      console.error("Error cargando productos:", error);
-    } else {
-      setPerfumes(data || []);
-    }
+      const fetchPerfumes = async () => {
+        console.log("🚀 Intentando cargar perfumes desde Supabase...");
+        const { data, error } = await supabase.from('products').select('*');
+        if (error) {
+          console.error("❌ Error cargando productos:", error);
+        } else {
+          console.log("✅ Productos cargados:", data);
+          setPerfumes(data || []);
+        }
   };
 
   fetchPerfumes();

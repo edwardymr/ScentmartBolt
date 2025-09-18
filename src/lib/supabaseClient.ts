@@ -8,4 +8,6 @@ if (!supabaseUrl || !supabaseAnonKey) {
   throw new Error("Supabase URL y/o Anon Key no están configurados");
 }
 
+console.log("🟢 Supabase URL cargada:", supabaseUrl);
+
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
