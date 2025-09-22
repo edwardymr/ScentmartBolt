@@ -277,12 +277,12 @@ export default function CheckoutPage({ cartItems, onBack, onPlaceOrder }: Checko
                   {cartItems.map(item => (
                     <div key={item.perfume.id} className="flex items-start gap-3">
                       <img
-                        src={item.perfume.image}
-                        alt={item.perfume.name}
+                        src={item.perfume.image_link}
+                        alt={item.perfume.title}
                         className="w-12 h-12 object-cover rounded-md"
                       />
                       <div className="flex-1">
-                        <h4 className="font-medium text-sm">{item.perfume.name}</h4>
+                        <h4 className="font-medium text-sm">{item.perfume.title}</h4>
                         <p className="text-gray-600 text-xs">{item.perfume.brand}</p>
                         <div className="flex justify-between items-center mt-1">
                           <span className="text-xs text-gray-600">Qty: {item.quantity}</span>

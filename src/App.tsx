@@ -152,10 +152,10 @@ function App() {
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
-        showNotification(`${perfume.name} añadido al carrito`, 'success');
+        showNotification(`${perfume.title} añadido al carrito`, 'success');
         return updated;
       } else {
-        showNotification(`${perfume.name} añadido al carrito`, 'success');
+        showNotification(`${perfume.title} añadido al carrito`, 'success');
         return [...prevCart, { perfume, quantity: 1 }];
       }
     });

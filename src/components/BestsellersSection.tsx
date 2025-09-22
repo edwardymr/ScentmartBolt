@@ -232,8 +232,8 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
                     {/* Product Image */}
                     <div className="relative h-32 sm:h-40 lg:h-48 bg-gradient-to-br from-slate-700 to-slate-800 overflow-hidden">
                       <img
-                        src={perfume.image}
-                        alt={perfume.name}
+                        src={perfume.image_link}
+                        alt={perfume.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         draggable={false}
                       />
@@ -250,7 +250,7 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
                           {perfume.family}
                         </span>
                         <h3 className="font-serif text-sm lg:text-lg font-bold text-white mb-1 group-hover:text-amber-400 transition-colors line-clamp-1">
-                          {perfume.name}
+                          {perfume.title}
                         </h3>
                         <p className="text-gray-400 text-xs lg:text-sm">{perfume.brand}</p>
                       </div>

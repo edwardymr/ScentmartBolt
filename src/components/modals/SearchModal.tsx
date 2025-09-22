@@ -25,7 +25,7 @@ export default function SearchModal({
     
     const term = searchTerm.toLowerCase();
     return perfumes.filter(perfume =>
-      perfume.name.toLowerCase().includes(term) ||
+      perfume.title.toLowerCase().includes(term) ||
       perfume.brand.toLowerCase().includes(term) ||
       perfume.family.toLowerCase().includes(term) ||
       perfume.description.toLowerCase().includes(term)

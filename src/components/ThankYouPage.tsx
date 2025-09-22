@@ -106,12 +106,12 @@ export default function ThankYouPage({ orderDetails, onBackToHome }: ThankYouPag
                 {orderDetails.items.map(item => (
                   <div key={item.perfume.id} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
                     <img
-                      src={item.perfume.image}
-                      alt={item.perfume.name}
+                      src={item.perfume.image_link}
+                      alt={item.perfume.title}
                       className="w-16 h-16 object-cover rounded-md"
                     />
                     <div className="flex-1">
-                      <h4 className="font-semibold">{item.perfume.name}</h4>
+                      <h4 className="font-semibold">{item.perfume.title}</h4>
                       <p className="text-gray-600 text-sm">{item.perfume.brand}</p>
                     </div>
                     <div className="text-right">

@@ -74,8 +74,8 @@ export default function PerfumeDetailModal({
           <div className="space-y-4">
             <div className="aspect-square rounded-xl overflow-hidden bg-gray-100">
               <img 
-                src={currentPerfume.image}
-                alt={currentPerfume.name}
+                src={currentPerfume.image_link}
+                alt={currentPerfume.title}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -123,7 +123,7 @@ export default function PerfumeDetailModal({
               ) : (
                 <>
                   <h3 className="text-3xl font-serif font-bold text-slate-800 mb-2">
-                    {currentPerfume.name}
+                    {currentPerfume.title}
                   </h3>
                   <p className="text-lg text-gray-600 mb-4">{currentPerfume.brand}</p>
                 </>

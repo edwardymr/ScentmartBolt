@@ -68,8 +68,8 @@ export default function PerfumeCard({
       {/* Product Image */}
       <div className="relative h-40 sm:h-48 md:h-64 bg-gray-100 overflow-hidden">
         <img 
-          src={perfume.image} 
-          alt={perfume.name}
+          src={perfume.image_link} 
+          alt={perfume.title}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
         />
         
@@ -111,7 +111,7 @@ export default function PerfumeCard({
       <div className="p-3 sm:p-4">
         <div className="mb-2">
           <h3 className="font-semibold text-slate-800 text-sm sm:text-base lg:text-lg group-hover:text-orange-500 transition-colors line-clamp-1">
-            {perfume.name}
+            {perfume.title}
           </h3>
           <p className="text-gray-600 text-xs sm:text-sm">{perfume.brand}</p>
         </div>

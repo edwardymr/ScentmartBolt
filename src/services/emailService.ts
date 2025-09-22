@@ -21,7 +21,7 @@ export const emailService = {
       };
 
       const itemsList = orderDetails.items.map(item => 
-        `• ${item.perfume.name} (${item.perfume.brand}) - Cantidad: ${item.quantity} - ${formatPrice(item.perfume.price * item.quantity)}`
+        `• ${item.perfume.title} (${item.perfume.brand}) - Cantidad: ${item.quantity} - ${formatPrice(item.perfume.price * item.quantity)}`
       ).join('\n');
 
       // Email para el cliente
@@ -38,7 +38,7 @@ export const emailService = {
           minute: '2-digit'
         }),
         order_items: orderDetails.items.map(item => 
-          `• ${item.perfume.name} (${item.perfume.brand}) - Cantidad: ${item.quantity} - ${formatPrice(item.perfume.price * item.quantity)}`
+          `• ${item.perfume.title} (${item.perfume.brand}) - Cantidad: ${item.quantity} - ${formatPrice(item.perfume.price * item.quantity)}`
         ).join('\n'),
         subtotal: formatPrice(orderDetails.total),
         shipping_cost: 'GRATIS',
@@ -104,7 +104,7 @@ export const emailService = {
 
       // Create detailed WhatsApp message
       const itemsList = orderDetails.items.map(item => 
-        `• ${item.perfume.name} (${item.perfume.brand})\n  Cantidad: ${item.quantity} - ${formatPrice(item.perfume.price * item.quantity)}`
+        `• ${item.perfume.title} (${item.perfume.brand})\n  Cantidad: ${item.quantity} - ${formatPrice(item.perfume.price * item.quantity)}`
       ).join('\n\n');
 
       const whatsappMessage = `🌸 *NUEVO PEDIDO - MisAromas* 🌸

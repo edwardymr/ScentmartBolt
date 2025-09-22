@@ -481,13 +481,13 @@ const generateCSVFeed = () => {
     
     const row = [
       perfume.id,
-      `${perfume.name} - ${perfume.brand}`,
+      `${perfume.title} - ${perfume.brand}`,
       perfume.description,
       perfume.stock > 0 ? 'in stock' : 'out of stock',
       'new',
       `${perfume.price} COP`,
       `${STORE_CONFIG.baseUrl}/product/${perfume.id}`,
-      `${STORE_CONFIG.baseUrl}${perfume.image}`,
+      `${STORE_CONFIG.baseUrl}${perfume.image_link}`,
       perfume.brand,
       `Perfumes > ${perfume.family} > ${perfume.gender}`,
       '469', // Categoría de Google para Fragancias
@@ -531,10 +531,10 @@ const generateXMLFeed = () => {
     
     xmlContent += `    <item>
       <g:id>${perfume.id}</g:id>
-      <g:title><![CDATA[${perfume.name} - ${perfume.brand}]]></g:title>
+      <g:title><![CDATA[${perfume.title} - ${perfume.brand}]]></g:title>
       <g:description><![CDATA[${perfume.description}]]></g:description>
       <g:link>${STORE_CONFIG.baseUrl}/product/${perfume.id}</g:link>
-      <g:image_link>${STORE_CONFIG.baseUrl}${perfume.image}</g:image_link>
+      <g:image_link>${STORE_CONFIG.baseUrl}${perfume.image_link}</g:image_link>
       <g:availability>${perfume.stock > 0 ? 'in stock' : 'out of stock'}</g:availability>
       <g:price>${perfume.price} COP</g:price>
       ${hasDiscount ? `<g:sale_price>${perfume.price} COP</g:sale_price>` : ''}

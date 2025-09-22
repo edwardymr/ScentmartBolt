@@ -57,7 +57,7 @@ class MetaSyncService {
   private perfumeToMetaProduct(perfume: Perfume, baseUrl: string): MetaProduct {
     return {
       id: perfume.id,
-      name: `${perfume.name} - ${perfume.brand}`,
+      name: `${perfume.title} - ${perfume.brand}`,
       description: perfume.description,
       availability: perfume.stock > 0 ? 'in stock' : 'out of stock',
       condition: 'new',
@@ -65,7 +65,7 @@ class MetaSyncService {
       currency: 'COP',
       brand: perfume.brand,
       category: `Perfumes > ${perfume.family} > ${perfume.gender}`,
-      image_url: `${baseUrl}${perfume.image}`,
+      image_url: `${baseUrl}${perfume.image_link}`,
       url: `${baseUrl}/product/${perfume.id}`,
       retailer_id: perfume.id,
       custom_data: {
@@ -94,7 +94,7 @@ class MetaSyncService {
       const result = await response.json();
 
       if (response.ok) {
-        console.log(`✅ Producto creado en Meta: ${perfume.name}`);
+        console.log(`✅ Producto creado en Meta: ${perfume.title}`);
         return {
           success: true,
           productId: perfume.id,
@@ -137,7 +137,7 @@ class MetaSyncService {
       const result = await response.json();
 
       if (response.ok) {
-        console.log(`✅ Producto actualizado en Meta: ${perfume.name}`);
+        console.log(`✅ Producto actualizado en Meta: ${perfume.title}`);
         return {
           success: true,
           productId: perfume.id,

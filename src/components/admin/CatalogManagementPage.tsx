@@ -67,12 +67,12 @@ export default function CatalogManagementPage({ perfumes, onUpdatePerfume }: Cat
                 <td className="p-4">
                   <div className="flex items-center gap-3">
                     <img
-                      src={perfume.image}
-                      alt={perfume.name}
+                      src={perfume.image_link}
+                      alt={perfume.title}
                       className="w-12 h-12 object-cover rounded-md"
                     />
                     <div>
-                      <div className="font-semibold text-slate-800">{perfume.name}</div>
+                      <div className="font-semibold text-slate-800">{perfume.title}</div>
                       <div className="text-sm text-gray-600">{perfume.brand}</div>
                     </div>
                   </div>
