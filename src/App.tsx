@@ -36,15 +36,43 @@ function App() {
   const [perfumes, setPerfumes] = useState<Perfume[]>([]);
 
     useEffect(() => {
-      const fetchPerfumes = async () => {
-        console.log("🚀 Intentando cargar perfumes desde Supabase...");
-        const { data, error } = await supabase.from('products').select('*');
-        if (error) {
-          console.error("❌ Error cargando productos:", error);
-        } else {
-          console.log("✅ Productos cargados:", data);
-          setPerfumes(data || []);
-        }
+  const fetchPerfumes = async () => {
+    console.log("🚀 Intentando cargar perfumes desde Supabase...");
+
+    const { data, error } = await supabase.from("products").select("*");
+    if (error) {
+      console.error("❌ Error cargando productos:", error);
+    } else {
+      const mappedPerfumes: Perfume[] = (data || []).map((item: any) => ({
+        id: item.id,
+        title: item.title,
+        description: item.description || "",
+        availability: item.availability || "out of stock",
+        condition: item.condition || "new",
+        price: parseFloat(item.price) || 0,
+        link: item.link || "",
+        image_link: item.image_link || "",
+        brand: item.brand || "",
+        product_type: item.product_type || "",
+        google_product_category: item.google_product_category || "",
+        gender: item.gender || "",
+        size: item.size || "",
+        color: item.color || "",
+        custom_label_0: item.custom_label_0 || "",
+        custom_label_1: item.custom_label_1 || "",
+        custom_label_2: item.custom_label_2 || "",
+        custom_label_3: item.custom_label_3 || "",
+        custom_label_4: item.custom_label_4 || "",
+        sale_price: item.sale_price ? parseFloat(item.sale_price) : undefined,
+        sale_price_effective_date: item.sale_price_effective_date || "",
+        shipping: item.shipping || "",
+        shipping_weight: item.shipping_weight || "",
+        stock: item.availability === "in stock" ? 10 : 0 // ⚡️ tú decides si manejar stock real
+      }));
+
+      console.log("✅ Productos cargados:", mappedPerfumes);
+      setPerfumes(mappedPerfumes);
+    }
   };
 
   fetchPerfumes();

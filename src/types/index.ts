@@ -1,24 +1,30 @@
 export interface Perfume {
   id: string;
-  name: string;
-  brand: string;
+  title: string;
+  description?: string;
+  availability: string;
+  condition: string;
   price: number;
-  originalPrice?: number;
-  image: string;
-  imageUrl?: string;
-  localImageUrl?: string;
-  description: string;
-  notes: {
-    top: string[];
-    middle: string[];
-    base: string[];
-  };
-  family: string;
-  gender: string;
-  stock: number;
-  volume?: string;
-  concentration?: string;
+  link?: string;
+  image_link: string;
+  brand: string;
+  product_type?: string;
+  google_product_category?: string;
+  gender?: string;
+  size?: string;
+  color?: string;
+  custom_label_0?: string;
+  custom_label_1?: string;
+  custom_label_2?: string;
+  custom_label_3?: string;
+  custom_label_4?: string;
+  sale_price?: number;
+  sale_price_effective_date?: string;
+  shipping?: string;
+  shipping_weight?: string;
+  stock: number; // lo calculamos a partir de availability
 }
+
 
 export interface CartItem {
   perfume: Perfume;
