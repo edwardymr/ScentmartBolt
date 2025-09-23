@@ -34,11 +34,15 @@ export default function FilterSidebar({
     onFamilyChange(updated);
   };
 
+  // ✅ Asegúrate que estos valores coincidan EXACTO con los de tu base Supabase
   const genders = ['Mujer', 'Hombre', 'Unisex'];
   const families = ['Floral', 'Oriental', 'Amaderado', 'Cítrico', 'Aromático'];
 
-  const hasActiveFilters = selectedGenders.length > 0 || selectedFamilies.length > 0 || 
-    priceRange[0] !== 30000 || priceRange[1] !== 80000;
+  const hasActiveFilters =
+    selectedGenders.length > 0 ||
+    selectedFamilies.length > 0 ||
+    priceRange[0] !== 30000 ||
+    priceRange[1] !== 80000;
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-3 mb-4">
@@ -101,10 +105,10 @@ export default function FilterSidebar({
               step="5000"
               value={priceRange[1]}
               onChange={(e) => onPriceChange([priceRange[0], parseInt(e.target.value)])}
-              className="w-16 h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+              className="w-16 h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
             />
             <span className="text-xs text-gray-600 font-medium whitespace-nowrap">
-              ${Math.round(priceRange[1]/1000)}K
+              ${Math.round(priceRange[1] / 1000)}K
             </span>
           </div>
         </div>
@@ -124,7 +128,7 @@ export default function FilterSidebar({
         )}
       </div>
 
-      {/* Filtros activos - línea adicional solo si hay filtros */}
+      {/* Filtros activos */}
       {hasActiveFilters && (
         <div className="flex items-center gap-2 mt-2 pt-2 border-t border-gray-100">
           <span className="text-xs text-gray-500 font-medium">Activos:</span>
@@ -153,9 +157,9 @@ export default function FilterSidebar({
             ))}
             {(priceRange[0] !== 30000 || priceRange[1] !== 80000) && (
               <span className="inline-flex items-center gap-1 bg-orange-100 text-orange-700 text-xs px-2 py-0.5 rounded-full">
-                Hasta ${Math.round(priceRange[1]/1000)}K
+                Hasta ${Math.round(priceRange[1] / 1000)}K
                 <button
-                  onClick={() => onPriceRange([30000, 80000])}
+                  onClick={() => onPriceChange([30000, 80000])}
                   className="hover:text-orange-900"
                 >
                   <X className="w-2.5 h-2.5" />
