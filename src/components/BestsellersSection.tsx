@@ -30,17 +30,17 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
     'BLEU INTENSE'
   ];
 
-  // 🔹 Ahora usamos perfume.name en lugar de perfume.title
+  // 🔹 Coincidencia insensible a mayúsculas/minúsculas
   const bestsellers = bestsellerNames
     .map(name =>
       perfumes.find(
-        p => p.name?.toLowerCase().trim() === name.toLowerCase().trim()
+        p => p.title?.toLowerCase().trim() === name.toLowerCase().trim()
       )
     )
     .filter(Boolean) as Perfume[];
 
-  // Debug para verificar
-  console.log("🟡 Bestsellers encontrados:", bestsellers.map(p => p.name));
+  // Debug: Ver qué productos está encontrando
+  console.log("🟡 Bestsellers encontrados:", bestsellers.map(p => p.title));
 
   // Configuración responsiva
   const updateItemsPerView = useCallback(() => {
@@ -175,9 +175,9 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
               {bestsellers.map((perfume) => (
                 <div key={perfume.id} className="flex-shrink-0 px-1.5 lg:px-2" style={{ width: `${itemWidth}%` }}>
                   <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg overflow-hidden shadow-xl h-full">
-                    <img src={perfume.image} alt={perfume.name} className="w-full h-40 object-cover" />
+                    <img src={perfume.image_link} alt={perfume.title} className="w-full h-40 object-cover" />
                     <div className="p-4">
-                      <h3 className="text-white font-bold">{perfume.name}</h3>
+                      <h3 className="text-white font-bold">{perfume.title}</h3>
                       <p className="text-gray-400 text-sm">{perfume.brand}</p>
                       <p className="text-amber-400">{formatPrice(perfume.price)}</p>
                     </div>
