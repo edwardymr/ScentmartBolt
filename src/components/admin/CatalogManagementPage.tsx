@@ -18,7 +18,15 @@ export default function CatalogManagementPage({ perfumes, onUpdatePerfume }: Cat
   };
 
   const handleSavePerfume = (updatedPerfume: Perfume) => {
-    onUpdatePerfume(updatedPerfume);
+    // 🔥 Convertimos las notas a las columnas de Supabase
+    const perfumeToSave = {
+      ...updatedPerfume,
+      custom_label_1: updatedPerfume.notes?.top?.join(', ') || '',
+      custom_label_2: updatedPerfume.notes?.middle?.join(', ') || '',
+      custom_label_3: updatedPerfume.notes?.base?.join(', ') || ''
+    };
+
+    onUpdatePerfume(perfumeToSave);
     setIsDetailModalOpen(false);
     setSelectedPerfume(null);
   };
@@ -48,7 +56,7 @@ export default function CatalogManagementPage({ perfumes, onUpdatePerfume }: Cat
         </button>
       </div>
 
-      {/* Products Table */}
+      {/* Tabla de productos */}
       <div className="overflow-x-auto">
         <table className="w-full bg-white rounded-lg overflow-hidden shadow-sm">
           <thead className="bg-gray-50">
@@ -86,13 +94,15 @@ export default function CatalogManagementPage({ perfumes, onUpdatePerfume }: Cat
                   )}
                 </td>
                 <td className="p-4">
-                  <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${
-                    perfume.stock === 0 
-                      ? 'bg-red-100 text-red-700'
-                      : perfume.stock < 5
+                  <span
+                    className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${
+                      perfume.stock === 0
+                        ? 'bg-red-100 text-red-700'
+                        : perfume.stock < 5
                         ? 'bg-yellow-100 text-yellow-700'
                         : 'bg-green-100 text-green-700'
-                  }`}>
+                    }`}
+                  >
                     {perfume.stock} unidades
                   </span>
                 </td>
@@ -102,11 +112,13 @@ export default function CatalogManagementPage({ perfumes, onUpdatePerfume }: Cat
                   </span>
                 </td>
                 <td className="p-4">
-                  <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${
-                    perfume.stock > 0 
-                      ? 'bg-green-100 text-green-700'
-                      : 'bg-red-100 text-red-700'
-                  }`}>
+                  <span
+                    className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${
+                      perfume.stock > 0
+                        ? 'bg-green-100 text-green-700'
+                        : 'bg-red-100 text-red-700'
+                    }`}
+                  >
                     {perfume.stock > 0 ? 'Disponible' : 'Agotado'}
                   </span>
                 </td>
@@ -125,7 +137,7 @@ export default function CatalogManagementPage({ perfumes, onUpdatePerfume }: Cat
         </table>
       </div>
 
-      {/* Edit Modal */}
+      {/* Modal de edición */}
       <PerfumeDetailModal
         perfume={selectedPerfume}
         isOpen={isDetailModalOpen}

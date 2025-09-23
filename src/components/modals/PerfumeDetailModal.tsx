@@ -87,8 +87,8 @@ export default function PerfumeDetailModal({
                 </label>
                 <input
                   type="text"
-                  value={editedPerfume?.image || ''}
-                  onChange={(e) => updateField('image', e.target.value)}
+                  value={editedPerfume?.image_link || ''}
+                  onChange={(e) => updateField('image_link', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500"
                 />
               </div>
@@ -105,8 +105,8 @@ export default function PerfumeDetailModal({
                     <label className="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
                     <input
                       type="text"
-                      value={editedPerfume?.name || ''}
-                      onChange={(e) => updateField('name', e.target.value)}
+                      value={editedPerfume?.title || ''}
+                      onChange={(e) => updateField('title', e.target.value)}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500"
                     />
                   </div>
@@ -159,11 +159,6 @@ export default function PerfumeDetailModal({
                     <span className="text-3xl font-bold text-slate-800">
                       {formatPrice(currentPerfume.price)}
                     </span>
-                    {currentPerfume.originalPrice && (
-                      <span className="text-lg text-gray-500 line-through">
-                        {formatPrice(currentPerfume.originalPrice)}
-                      </span>
-                    )}
                   </div>
                   <div className="text-sm text-gray-600">
                     Stock: {currentPerfume.stock} unidades
@@ -178,17 +173,12 @@ export default function PerfumeDetailModal({
                 <>
                   <div className="flex-1">
                     <label className="block text-sm font-medium text-gray-700 mb-1">Familia</label>
-                    <select
-                      value={editedPerfume?.family || ''}
-                      onChange={(e) => updateField('family', e.target.value)}
+                    <input
+                      type="text"
+                      value={editedPerfume?.product_type || ''}
+                      onChange={(e) => updateField('product_type', e.target.value)}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500"
-                    >
-                      <option value="Floral">Floral</option>
-                      <option value="Oriental">Oriental</option>
-                      <option value="Amaderado">Amaderado</option>
-                      <option value="Cítrico">Cítrico</option>
-                      <option value="Aromático">Aromático</option>
-                    </select>
+                    />
                   </div>
                   <div className="flex-1">
                     <label className="block text-sm font-medium text-gray-700 mb-1">Género</label>
@@ -206,7 +196,7 @@ export default function PerfumeDetailModal({
               ) : (
                 <>
                   <span className="inline-block bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">
-                    {currentPerfume.family}
+                    {currentPerfume.product_type}
                   </span>
                   <span className="inline-block bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-sm font-medium">
                     {currentPerfume.gender}
@@ -232,23 +222,29 @@ export default function PerfumeDetailModal({
               )}
             </div>
 
-            {/* Fragrance Notes */}
-            {!isAdminMode && (
+            {/* Fragrance Notes (only if exist) */}
+            {!isAdminMode && currentPerfume.notes && (
               <div>
                 <h4 className="font-semibold text-slate-800 mb-3">Notas Olfativas</h4>
                 <div className="space-y-3">
-                  <div>
-                    <span className="text-sm font-medium text-gray-600">Notas de Salida:</span>
-                    <p className="text-gray-700">{currentPerfume.notes.top.join(', ')}</p>
-                  </div>
-                  <div>
-                    <span className="text-sm font-medium text-gray-600">Notas de Corazón:</span>
-                    <p className="text-gray-700">{currentPerfume.notes.middle.join(', ')}</p>
-                  </div>
-                  <div>
-                    <span className="text-sm font-medium text-gray-600">Notas de Fondo:</span>
-                    <p className="text-gray-700">{currentPerfume.notes.base.join(', ')}</p>
-                  </div>
+                  {currentPerfume.notes.top && (
+                    <div>
+                      <span className="text-sm font-medium text-gray-600">Notas de Salida:</span>
+                      <p className="text-gray-700">{currentPerfume.notes.top.join(', ')}</p>
+                    </div>
+                  )}
+                  {currentPerfume.notes.middle && (
+                    <div>
+                      <span className="text-sm font-medium text-gray-600">Notas de Corazón:</span>
+                      <p className="text-gray-700">{currentPerfume.notes.middle.join(', ')}</p>
+                    </div>
+                  )}
+                  {currentPerfume.notes.base && (
+                    <div>
+                      <span className="text-sm font-medium text-gray-600">Notas de Fondo:</span>
+                      <p className="text-gray-700">{currentPerfume.notes.base.join(', ')}</p>
+                    </div>
+                  )}
                 </div>
               </div>
             )}

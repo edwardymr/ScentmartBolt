@@ -14,10 +14,13 @@ export interface Perfume {
   size?: string;
   color?: string;
   custom_label_0?: string;
-  custom_label_1?: string;
-  custom_label_2?: string;
-  custom_label_3?: string;
-  custom_label_4?: string;
+  
+  notes?: {
+    top?: string[];
+    middle?: string[];
+    base?: string[];
+  };
+  
   sale_price?: number;
   sale_price_effective_date?: string;
   shipping?: string;

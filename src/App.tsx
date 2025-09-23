@@ -59,9 +59,11 @@ function App() {
         size: item.size || "",
         color: item.color || "",
         custom_label_0: item.custom_label_0 || "",
-        custom_label_1: item.custom_label_1 || "",
-        custom_label_2: item.custom_label_2 || "",
-        custom_label_3: item.custom_label_3 || "",
+        notes: {
+          top: item.custom_label_1 ? item.custom_label_1.split(',').map((s: string) => s.trim()) : [],
+          middle: item.custom_label_2 ? item.custom_label_2.split(',').map((s: string) => s.trim()) : [],
+          base: item.custom_label_3 ? item.custom_label_3.split(',').map((s: string) => s.trim()) : []
+        },
         custom_label_4: item.custom_label_4 || "",
         sale_price: item.sale_price ? parseFloat(item.sale_price) : undefined,
         sale_price_effective_date: item.sale_price_effective_date || "",

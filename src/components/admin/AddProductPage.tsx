@@ -8,11 +8,11 @@ interface AddProductPageProps {
 
 export default function AddProductPage({ onAddPerfume }: AddProductPageProps) {
   const [formData, setFormData] = useState({
-    name: '',
+    title: '',
     brand: '',
     price: '',
     originalPrice: '',
-    image: '',
+    image_link: '',
     description: '',
     topNotes: '',
     middleNotes: '',
@@ -20,8 +20,8 @@ export default function AddProductPage({ onAddPerfume }: AddProductPageProps) {
     family: 'Floral',
     gender: 'Mujer',
     stock: '',
-    volume: '100ml',
-    concentration: 'Eau de Parfum'
+    size: '100ml',
+    condition: 'new'
   });
 
   const handleInputChange = (field: string, value: string) => {
@@ -33,33 +33,33 @@ export default function AddProductPage({ onAddPerfume }: AddProductPageProps) {
     
     const newPerfume: Perfume = {
       id: `perfume-${Date.now()}`,
-      name: formData.name,
+      title: formData.title,
       brand: formData.brand,
       price: parseInt(formData.price),
-      originalPrice: formData.originalPrice ? parseInt(formData.originalPrice) : undefined,
-      image: formData.image,
       description: formData.description,
-      notes: {
-        top: formData.topNotes.split(',').map(note => note.trim()),
-        middle: formData.middleNotes.split(',').map(note => note.trim()),
-        base: formData.baseNotes.split(',').map(note => note.trim())
-      },
-      family: formData.family,
+      image_link: formData.image_link,
+      condition: formData.condition,
+      availability: formData.stock && parseInt(formData.stock) > 0 ? "in stock" : "out of stock",
+      stock: parseInt(formData.stock) || 0,
+      product_type: formData.family,
       gender: formData.gender,
-      stock: parseInt(formData.stock),
-      volume: formData.volume,
-      concentration: formData.concentration
+      size: formData.size,
+      custom_label_1: formData.topNotes,
+      custom_label_2: formData.middleNotes,
+      custom_label_3: formData.baseNotes,
+      custom_label_0: '',
+      custom_label_4: ''
     };
 
     onAddPerfume(newPerfume);
     
     // Reset form
     setFormData({
-      name: '',
+      title: '',
       brand: '',
       price: '',
       originalPrice: '',
-      image: '',
+      image_link: '',
       description: '',
       topNotes: '',
       middleNotes: '',
@@ -67,8 +67,8 @@ export default function AddProductPage({ onAddPerfume }: AddProductPageProps) {
       family: 'Floral',
       gender: 'Mujer',
       stock: '',
-      volume: '100ml',
-      concentration: 'Eau de Parfum'
+      size: '100ml',
+      condition: 'new'
     });
   };
 
@@ -85,7 +85,7 @@ export default function AddProductPage({ onAddPerfume }: AddProductPageProps) {
 
       <form onSubmit={handleSubmit} className="max-w-2xl">
         <div className="space-y-6">
-          {/* Basic Information */}
+          {/* Nombre y Marca */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -94,8 +94,8 @@ export default function AddProductPage({ onAddPerfume }: AddProductPageProps) {
               <input
                 type="text"
                 required
-                value={formData.name}
-                onChange={(e) => handleInputChange('name', e.target.value)}
+                value={formData.title}
+                onChange={(e) => handleInputChange('title', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
               />
             </div>
@@ -114,7 +114,7 @@ export default function AddProductPage({ onAddPerfume }: AddProductPageProps) {
             </div>
           </div>
 
-          {/* Pricing */}
+          {/* Precio */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -128,21 +128,9 @@ export default function AddProductPage({ onAddPerfume }: AddProductPageProps) {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
               />
             </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Precio Original (Opcional)
-              </label>
-              <input
-                type="number"
-                value={formData.originalPrice}
-                onChange={(e) => handleInputChange('originalPrice', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-              />
-            </div>
           </div>
 
-          {/* Image URL */}
+          {/* URL de Imagen */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               URL de la Imagen *
@@ -150,14 +138,14 @@ export default function AddProductPage({ onAddPerfume }: AddProductPageProps) {
             <input
               type="url"
               required
-              value={formData.image}
-              onChange={(e) => handleInputChange('image', e.target.value)}
+              value={formData.image_link}
+              onChange={(e) => handleInputChange('image_link', e.target.value)}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-              placeholder="https://ejemplo.com/imagen.jpg"
+              placeholder="https://misaromas.com/images/producto.jpg"
             />
           </div>
 
-          {/* Description */}
+          {/* Descripción */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Descripción *
@@ -172,7 +160,7 @@ export default function AddProductPage({ onAddPerfume }: AddProductPageProps) {
             />
           </div>
 
-          {/* Fragrance Notes */}
+          {/* Notas Olfativas */}
           <div className="space-y-4">
             <h3 className="font-semibold text-slate-800">Notas Olfativas</h3>
             
@@ -186,7 +174,7 @@ export default function AddProductPage({ onAddPerfume }: AddProductPageProps) {
                 value={formData.topNotes}
                 onChange={(e) => handleInputChange('topNotes', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-                placeholder="Bergamota, Limón, Cassis (separadas por comas)"
+                placeholder="Bergamota, Limón, Cassis"
               />
             </div>
 
@@ -200,7 +188,7 @@ export default function AddProductPage({ onAddPerfume }: AddProductPageProps) {
                 value={formData.middleNotes}
                 onChange={(e) => handleInputChange('middleNotes', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-                placeholder="Jazmín, Rosa, Peonía (separadas por comas)"
+                placeholder="Jazmín, Rosa, Peonía"
               />
             </div>
 
@@ -214,12 +202,12 @@ export default function AddProductPage({ onAddPerfume }: AddProductPageProps) {
                 value={formData.baseNotes}
                 onChange={(e) => handleInputChange('baseNotes', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-                placeholder="Almizcle, Cedro, Ámbar (separadas por comas)"
+                placeholder="Almizcle, Cedro, Ámbar"
               />
             </div>
           </div>
 
-          {/* Categories and Details */}
+          {/* Familia, Género y Stock */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -270,43 +258,25 @@ export default function AddProductPage({ onAddPerfume }: AddProductPageProps) {
             </div>
           </div>
 
-          {/* Volume and Concentration */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Volumen
-              </label>
-              <select
-                value={formData.volume}
-                onChange={(e) => handleInputChange('volume', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-              >
-                <option value="30ml">30ml</option>
-                <option value="50ml">50ml</option>
-                <option value="75ml">75ml</option>
-                <option value="100ml">100ml</option>
-                <option value="125ml">125ml</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Concentración
-              </label>
-              <select
-                value={formData.concentration}
-                onChange={(e) => handleInputChange('concentration', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-              >
-                <option value="Eau de Toilette">Eau de Toilette</option>
-                <option value="Eau de Parfum">Eau de Parfum</option>
-                <option value="Extrait de Parfum">Extrait de Parfum</option>
-                <option value="Eau de Cologne">Eau de Cologne</option>
-              </select>
-            </div>
+          {/* Volumen */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Tamaño / Volumen
+            </label>
+            <select
+              value={formData.size}
+              onChange={(e) => handleInputChange('size', e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            >
+              <option value="30ml">30ml</option>
+              <option value="50ml">50ml</option>
+              <option value="75ml">75ml</option>
+              <option value="100ml">100ml</option>
+              <option value="125ml">125ml</option>
+            </select>
           </div>
 
-          {/* Submit Button */}
+          {/* Botón */}
           <div className="pt-6">
             <button
               type="submit"
