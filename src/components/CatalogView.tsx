@@ -40,15 +40,25 @@ export default function CatalogView({
 
   const filteredAndSortedPerfumes = useMemo(() => {
     let filtered = perfumes.filter(perfume => {
-      // ✅ Aseguramos que tome los campos correctos
-      const genderMatch = selectedGenders.length === 0 || selectedGenders.includes(perfume.gender);
-      const familyMatch = selectedFamilies.length === 0 || selectedFamilies.includes(perfume.family);
-      const priceMatch = perfume.price >= priceRange[0] && perfume.price <= priceRange[1];
-      
+      // Normalizamos valores en minúsculas para evitar problemas
+      const gender = perfume.gender?.toLowerCase() || "";
+      const family = perfume.product_type?.toLowerCase() || "";
+
+      const genderMatch =
+        selectedGenders.length === 0 ||
+        selectedGenders.map(g => g.toLowerCase()).includes(gender);
+
+      const familyMatch =
+        selectedFamilies.length === 0 ||
+        selectedFamilies.map(f => f.toLowerCase()).includes(family);
+
+      const priceMatch =
+        perfume.price >= priceRange[0] && perfume.price <= priceRange[1];
+
       return genderMatch && familyMatch && priceMatch;
     });
 
-    // ✅ Ordenamiento
+    // Ordenamiento
     filtered.sort((a, b) => {
       switch (sortOption) {
         case 'price-asc':
@@ -59,6 +69,7 @@ export default function CatalogView({
           return parseInt(b.id) - parseInt(a.id);
         case 'relevance':
         default:
+          // Recomendaciones primero si existen
           if (recommendedPerfumes.length > 0) {
             const aIsRecommended = recommendedPerfumes.includes(a.title);
             const bIsRecommended = recommendedPerfumes.includes(b.title);
@@ -75,7 +86,7 @@ export default function CatalogView({
   const clearFilters = () => {
     onGenderChange([]);
     onFamilyChange([]);
-    onPriceChange([30000, 80000]); // 👈 Ajusta rango por defecto si quieres
+    onPriceChange([30000, 80000]);
     onSortChange('relevance');
   };
 
@@ -99,7 +110,7 @@ export default function CatalogView({
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Sidebar de filtros */}
+          {/* Filtros */}
           <div className="lg:col-span-1">
             <FilterSidebar
               selectedGenders={selectedGenders}
@@ -112,7 +123,7 @@ export default function CatalogView({
             />
           </div>
 
-          {/* Grid de productos */}
+          {/* Productos */}
           <div className="lg:col-span-3">
             <SortBar
               totalResults={filteredAndSortedPerfumes.length}
