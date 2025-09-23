@@ -229,7 +229,7 @@ Mis Aromas procederá a realizar el recojo del producto en el domicilio registra
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#catalog"
                   className="text-gray-300 hover:text-amber-400 transition-colors"
                 >
                   Catálogo
@@ -240,7 +240,7 @@ Mis Aromas procederá a realizar el recojo del producto en el domicilio registra
                   href="#"
                   className="text-gray-300 hover:text-amber-400 transition-colors"
                 >
-                  Sobre Nosotros
+                  Más Vendidos
                 </a>
               </li>
               <li>
