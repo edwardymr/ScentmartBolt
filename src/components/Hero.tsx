@@ -7,7 +7,7 @@ interface HeroProps {
 
 export default function Hero({ onOpenQuiz }: HeroProps) {
   return (
-    <div 
+    <section id="hero"
       className="relative min-h-screen flex items-center justify-center bg-cover bg-center pt-24"
       style={{
         backgroundImage: 'linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url(https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg)'
