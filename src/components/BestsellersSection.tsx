@@ -19,10 +19,28 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
   const autoPlayRef = useRef<NodeJS.Timeout>();
 
   // Productos específicos para el carrusel (más vendidos)
-  const bestsellerNames = ['Magnat', "D'orsay", 'Vibranza', 'You', 'MITHYKA', "L'image", 'Pulso Absolute', 'BLEU INTENSE'];
+  const bestsellerNames = [
+    'Magnat',
+    "D'orsay",
+    'Vibranza',
+    'You',
+    'MITHYKA',
+    "L'image",
+    'Pulso Absolute',
+    'BLEU INTENSE'
+  ];
+
+  // 🔹 Coincidencia insensible a mayúsculas/minúsculas
   const bestsellers = bestsellerNames
-    .map(name => perfumes.find(p => p.title === name)) // 🔹 CAMBIADO name → title
+    .map(name =>
+      perfumes.find(
+        p => p.title?.toLowerCase().trim() === name.toLowerCase().trim()
+      )
+    )
     .filter(Boolean) as Perfume[];
+
+  // Debug: Ver qué productos está encontrando
+  console.log("🟡 Bestsellers encontrados:", bestsellers.map(p => p.title));
 
   // Configuración responsiva
   const updateItemsPerView = useCallback(() => {
@@ -168,6 +186,24 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
               ))}
             </div>
           </div>
+
+          {/* Navigation buttons */}
+          {bestsellers.length > Math.floor(itemsPerView) && (
+            <>
+              <button
+                onClick={goToPrevious}
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-amber-500 text-slate-900 p-2 rounded-full shadow-lg hover:bg-amber-600 transition"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={goToNext}
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-amber-500 text-slate-900 p-2 rounded-full shadow-lg hover:bg-amber-600 transition"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </>
+          )}
         </div>
       </div>
     </section>
