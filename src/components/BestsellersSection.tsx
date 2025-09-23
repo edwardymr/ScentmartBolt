@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, Star, Crown } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Crown } from 'lucide-react';
 import { Perfume } from '../types';
 
 interface BestsellersSectionProps {
@@ -19,28 +19,10 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
   const autoPlayRef = useRef<NodeJS.Timeout>();
 
   // Productos específicos para el carrusel (más vendidos)
-  const bestsellerNames = [
-    'Magnat',
-    "D'orsay",
-    'Vibranza',
-    'You',
-    'MITHYKA',
-    "L'image",
-    'Pulso Absolute',
-    'BLEU INTENSE'
-  ];
-
-  // 🔹 Coincidencia insensible a mayúsculas/minúsculas
+  const bestsellerNames = ['Magnat', "D'orsay", 'Vibranza', 'You', 'MITHYKA', "L'image", 'Pulso Absolute', 'BLEU INTENSE'];
   const bestsellers = bestsellerNames
-    .map(name =>
-      perfumes.find(
-        p => p.title?.toLowerCase().trim() === name.toLowerCase().trim()
-      )
-    )
+    .map(name => perfumes.find(p => p.title === name)) // ✅ Usamos title
     .filter(Boolean) as Perfume[];
-
-  // Debug: Ver qué productos está encontrando
-  console.log("🟡 Bestsellers encontrados:", bestsellers.map(p => p.title));
 
   // Configuración responsiva
   const updateItemsPerView = useCallback(() => {
@@ -160,6 +142,24 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
 
         {/* Carousel */}
         <div className="relative">
+          {/* Botones de navegación */}
+          {bestsellers.length > Math.floor(itemsPerView) && (
+            <>
+              <button
+                onClick={goToPrevious}
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-amber-500 text-white p-2 rounded-full shadow-lg hover:bg-amber-600"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                onClick={goToNext}
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-amber-500 text-white p-2 rounded-full shadow-lg hover:bg-amber-600"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </>
+          )}
+
           <div ref={carouselRef} className="overflow-hidden">
             <div
               className="flex transition-transform duration-500 ease-out cursor-grab active:cursor-grabbing"
@@ -173,13 +173,36 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
               onTouchEnd={handleDragEnd}
             >
               {bestsellers.map((perfume) => (
-                <div key={perfume.id} className="flex-shrink-0 px-1.5 lg:px-2" style={{ width: `${itemWidth}%` }}>
-                  <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg overflow-hidden shadow-xl h-full">
-                    <img src={perfume.image_link} alt={perfume.title} className="w-full h-40 object-cover" />
+                <div 
+                  key={perfume.id} 
+                  className="flex-shrink-0 px-1.5 lg:px-2" 
+                  style={{ width: `${itemWidth}%` }}
+                >
+                  <div 
+                    className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg overflow-hidden shadow-xl h-full cursor-pointer hover:scale-105 transition-transform"
+                    onClick={() => onViewDetails(perfume)} // ✅ Abre modal de detalles
+                  >
+                    <img 
+                      src={perfume.image_link} 
+                      alt={perfume.title} 
+                      className="w-full h-40 object-cover" 
+                    />
                     <div className="p-4">
                       <h3 className="text-white font-bold">{perfume.title}</h3>
                       <p className="text-gray-400 text-sm">{perfume.brand}</p>
                       <p className="text-amber-400">{formatPrice(perfume.price)}</p>
+
+                      {/* Botón de añadir al carrito */}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation(); // evita abrir modal al añadir al carrito
+                          onAddToCart(perfume);
+                        }}
+                        disabled={perfume.stock === 0}
+                        className="mt-2 w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-slate-900 font-bold py-1.5 rounded-md disabled:opacity-50"
+                      >
+                        {perfume.stock === 0 ? "Agotado" : "Añadir al carrito"}
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -187,22 +210,17 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
             </div>
           </div>
 
-          {/* Navigation buttons */}
+          {/* Indicadores (dots) */}
           {bestsellers.length > Math.floor(itemsPerView) && (
-            <>
-              <button
-                onClick={goToPrevious}
-                className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-amber-500 text-slate-900 p-2 rounded-full shadow-lg hover:bg-amber-600 transition"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={goToNext}
-                className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-amber-500 text-slate-900 p-2 rounded-full shadow-lg hover:bg-amber-600 transition"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </>
+            <div className="flex justify-center mt-6 gap-2">
+              {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`h-2 w-2 rounded-full ${currentIndex === index ? 'bg-amber-500' : 'bg-gray-500'}`}
+                />
+              ))}
+            </div>
           )}
         </div>
       </div>
