@@ -23,7 +23,7 @@ Antes de generar los feeds, **DEBES** editar el archivo `scripts/generate-produc
 ```javascript
 const STORE_CONFIG = {
   // ⚠️ CAMBIAR POR TU DOMINIO REAL
-  baseUrl: 'https://your-scentmart-domain.com', // ← CAMBIAR AQUÍ
+  baseUrl: 'https://misaromas.com', // ← CAMBIAR AQUÍ
   // ... resto de configuración
 };
 ```

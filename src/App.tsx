@@ -367,12 +367,7 @@ function App() {
       default:
         return (
           <>
-            <Hero onOpenQuiz={() => setIsQuizModalOpen(true)} />
-            <BestsellersSection
-              perfumes={perfumes}
-              onAddToCart={handleAddToCart}
-              onViewDetails={handleViewDetails}
-            />
+            {/* Primero el catálogo */}
             <CatalogView
               perfumes={perfumes}
               onAddToCart={handleAddToCart}
@@ -387,9 +382,22 @@ function App() {
               onPriceChange={setPriceRange}
               onSortChange={setSortOption}
             />
+
+            {/* Después los más vendidos */}
+            <BestsellersSection
+              perfumes={perfumes}
+              onAddToCart={handleAddToCart}
+              onViewDetails={handleViewDetails}
+            />
+
+            {/* Luego la sección Hero */}
+            <Hero onOpenQuiz={() => setIsQuizModalOpen(true)} />
+
+            {/* Y el resto */}
             <OlfactoryFamilyExplorer onNavigateToCatalog={handleNavigateToCatalog} />
             <AboutSection />
           </>
+
         );
     }
   };

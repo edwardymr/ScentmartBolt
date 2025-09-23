@@ -1,5 +1,5 @@
 
-📈 REPORTE DE CATÁLOGO SCENTMART
+📈 REPORTE DE CATÁLOGO MISAROMAS
 ===============================
 
 📊 ESTADÍSTICAS GENERALES:
@@ -37,10 +37,10 @@
 • Precio promedio: $55.619 COP
 
 🔗 CONFIGURACIÓN ACTUAL:
-• Dominio base: https://your-scentmart-domain.com
+• Dominio base: https://misaromas.com
 • Envío gratis en: Santa Marta, Colombia
 • WhatsApp: +573213200601
-• Email: scentmartperfumes@gmail.com
+• Email: misaromas.store@gmail.com
 
 ⚠️ IMPORTANTE:
 Antes de subir los feeds a Facebook Commerce Manager:
