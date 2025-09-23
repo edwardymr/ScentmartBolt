@@ -74,9 +74,11 @@ export default function PerfumeCard({
         />
         
         {/* Hover Overlay */}
-        <div className={`absolute inset-0 bg-black/20 transition-opacity duration-300 ${
-          isHovered ? 'opacity-100' : 'opacity-0'
-        }`}>
+        <div
+          className={`absolute inset-0 bg-black/20 transition-opacity duration-300 ${
+            isHovered ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
           <div className="absolute bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-4">
             <button
               onClick={handleActionClick}
