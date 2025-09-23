@@ -91,7 +91,7 @@ export default function CatalogView({
   };
 
   return (
-    <section id="catalog" className="py-20 bg-gray-50">
+    <section id="catalog" className="pt-28 md:pt-32 pb-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-slate-800 mb-4">
