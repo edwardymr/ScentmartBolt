@@ -237,7 +237,7 @@ Mis Aromas procederá a realizar el recojo del producto en el domicilio registra
               </li>
               <li>
                 <a
-                  href="#BestSellers"
+                  href="#bestsellers"
                   className="text-gray-300 hover:text-amber-400 transition-colors"
                 >
                   Más Vendidos

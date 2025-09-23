@@ -7,10 +7,12 @@ interface HeroProps {
 
 export default function Hero({ onOpenQuiz }: HeroProps) {
   return (
-    <section id="hero"
+    <section 
+      id="hero" // 👈 ESTE ES EL ID PARA EL FOOTER
       className="relative min-h-screen flex items-center justify-center bg-cover bg-center pt-24"
       style={{
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url(https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg)'
+        backgroundImage:
+          'linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url(https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg)',
       }}
     >
       <div className="text-center text-white max-w-4xl mx-auto px-4">
@@ -21,10 +23,10 @@ export default function Hero({ onOpenQuiz }: HeroProps) {
           </span>
         </h1>
         <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto leading-relaxed">
-          Descubre paisajes olfativos únicos que evocan recuerdos y despiertan emociones. 
-          Cada fragancia cuenta una historia, ¿cuál será la tuya?
+          Descubre paisajes olfativos únicos que evocan recuerdos y despiertan
+          emociones. Cada fragancia cuenta una historia, ¿cuál será la tuya?
         </p>
-        <button 
+        <button
           onClick={onOpenQuiz}
           className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2 mx-auto"
         >
@@ -32,6 +34,6 @@ export default function Hero({ onOpenQuiz }: HeroProps) {
           Descubre tu Aroma Ideal
         </button>
       </div>
-    </div>
+    </section> // 👈 ANTES TENÍAS UN </div>
   );
 }
