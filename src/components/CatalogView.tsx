@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Perfume } from '../types';
 import FilterSidebar from './FilterSidebar';
 import SortBar from './SortBar';
@@ -21,10 +21,10 @@ interface CatalogViewProps {
   onSortChange: (option: string) => void;
 }
 
-export default function CatalogView({ 
-  perfumes, 
-  onAddToCart, 
-  onViewDetails, 
+export default function CatalogView({
+  perfumes,
+  onAddToCart,
+  onViewDetails,
   isAdminMode = false,
   onEditPerfume,
   recommendedPerfumes = [],
@@ -37,17 +37,15 @@ export default function CatalogView({
   onPriceChange,
   onSortChange
 }: CatalogViewProps) {
-
   const filteredAndSortedPerfumes = useMemo(() => {
     let filtered = perfumes.filter(perfume => {
       const genderMatch = selectedGenders.length === 0 || selectedGenders.includes(perfume.gender);
       const familyMatch = selectedFamilies.length === 0 || selectedFamilies.includes(perfume.family);
       const priceMatch = perfume.price >= priceRange[0] && perfume.price <= priceRange[1];
-      
       return genderMatch && familyMatch && priceMatch;
     });
 
-    // Apply sorting
+    // Sorting
     filtered.sort((a, b) => {
       switch (sortOption) {
         case 'price-asc':
@@ -58,10 +56,9 @@ export default function CatalogView({
           return parseInt(b.id) - parseInt(a.id);
         case 'relevance':
         default:
-          // If we have recommendations, prioritize them
           if (recommendedPerfumes.length > 0) {
-            const aIsRecommended = recommendedPerfumes.includes(a.name);
-            const bIsRecommended = recommendedPerfumes.includes(b.name);
+            const aIsRecommended = recommendedPerfumes.includes(a.title); // 🔹 CAMBIADO name → title
+            const bIsRecommended = recommendedPerfumes.includes(b.title);
             if (aIsRecommended && !bIsRecommended) return -1;
             if (!aIsRecommended && bIsRecommended) return 1;
           }
@@ -89,17 +86,10 @@ export default function CatalogView({
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Explora nuestros paisajes olfativos cuidadosamente seleccionados
           </p>
-          {recommendedPerfumes.length > 0 && (
-            <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg">
-              <p className="text-amber-800 font-medium">
-                ✨ Mostrando recomendaciones personalizadas basadas en tu quiz
-              </p>
-            </div>
-          )}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Filter Sidebar */}
+          {/* Sidebar */}
           <div className="lg:col-span-1">
             <FilterSidebar
               selectedGenders={selectedGenders}
@@ -112,7 +102,7 @@ export default function CatalogView({
             />
           </div>
 
-          {/* Products Grid */}
+          {/* Grid */}
           <div className="lg:col-span-3">
             <SortBar
               totalResults={filteredAndSortedPerfumes.length}
@@ -135,13 +125,8 @@ export default function CatalogView({
 
             {filteredAndSortedPerfumes.length === 0 && (
               <div className="text-center py-12">
-                <p className="text-gray-500 text-lg">
-                  No se encontraron productos que coincidan con tus filtros
-                </p>
-                <button
-                  onClick={clearFilters}
-                  className="mt-4 text-orange-500 hover:text-orange-600 font-medium"
-                >
+                <p className="text-gray-500 text-lg">No se encontraron productos que coincidan con tus filtros</p>
+                <button onClick={clearFilters} className="mt-4 text-orange-500 hover:text-orange-600 font-medium">
                   Limpiar filtros
                 </button>
               </div>
