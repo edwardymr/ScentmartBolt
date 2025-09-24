@@ -191,7 +191,7 @@ Mis Aromas procederá a realizar el recojo del producto en el domicilio registra
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://facebook.com/767986069737436"
+                href="https://www.facebook.com/share/175XYkuAi1/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-amber-400 transition-colors"
