@@ -33,14 +33,14 @@ export default function AddProductPage() {
       availability: parseInt(formData.stock) > 0 ? 'in stock' : 'out of stock',
       condition: formData.condition,
       price: `${formData.price} COP`, // 👈 en tu tabla está con "COP"
-      link: `https://misaromas.com/product/${Date.now()}`,
+      link: `https://misaromas.com/product/${Date.now()}`, // identificador único para el link
       image_link: formData.image_link,
       brand: formData.brand,
       product_type: formData.family,
-      google_product_category: 469, // 👈 valor fijo como en tus registros
+      google_product_category: 469, // fijo en tu tabla
       gender: formData.gender.toLowerCase(), // mujer/hombre/unisex
       size: formData.size,
-      color: formData.family, // opcional, tu tabla tiene este campo
+      color: formData.family, // opcional, tu tabla lo tiene
       custom_label_0: '',
       custom_label_1: formData.topNotes,
       custom_label_2: formData.middleNotes,
@@ -52,6 +52,7 @@ export default function AddProductPage() {
       shipping_weight: '0.5 kg'
     };
 
+    // 🚀 Importante: NO enviamos "id", Supabase lo genera automáticamente
     const { error } = await supabase.from('products').insert([newProduct]);
 
     if (error) {
