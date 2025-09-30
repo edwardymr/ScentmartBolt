@@ -40,9 +40,9 @@ export default function CatalogView({
 
   const filteredAndSortedPerfumes = useMemo(() => {
     let filtered = perfumes.filter(perfume => {
-      // Normalizamos valores en minúsculas para evitar problemas
+      // Normalizamos valores en minúsculas
       const gender = perfume.gender?.toLowerCase() || "";
-      const family = perfume.product_type?.toLowerCase() || "";
+      const family = perfume.product_type?.toLowerCase() || perfume.family?.toLowerCase() || "";
 
       const genderMatch =
         selectedGenders.length === 0 ||
@@ -69,7 +69,6 @@ export default function CatalogView({
           return parseInt(b.id) - parseInt(a.id);
         case 'relevance':
         default:
-          // Recomendaciones primero si existen
           if (recommendedPerfumes.length > 0) {
             const aIsRecommended = recommendedPerfumes.includes(a.title);
             const bIsRecommended = recommendedPerfumes.includes(b.title);

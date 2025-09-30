@@ -18,13 +18,13 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
   const carouselRef = useRef<HTMLDivElement>(null);
   const autoPlayRef = useRef<NodeJS.Timeout>();
 
-  // Productos específicos para el carrusel (más vendidos)
+  // Productos específicos (más vendidos)
   const bestsellerNames = ['Magnat', "D'orsay", 'Vibranza', 'You', 'MITHYKA', "L'image", 'Pulso Absolute', 'BLEU INTENSE'];
   const bestsellers = bestsellerNames
-    .map(name => perfumes.find(p => p.title === name)) // ✅ Usamos title
+    .map(name => perfumes.find(p => p.title.toLowerCase() === name.toLowerCase())) // comparación insensible a mayúsculas
     .filter(Boolean) as Perfume[];
 
-  // Configuración responsiva
+  // Responsividad
   const updateItemsPerView = useCallback(() => {
     if (typeof window !== 'undefined') {
       const width = window.innerWidth;
@@ -46,7 +46,6 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
   // Auto-play
   const startAutoPlay = useCallback(() => {
     if (autoPlayRef.current) clearInterval(autoPlayRef.current);
-    
     autoPlayRef.current = setInterval(() => {
       if (!isDragging && isAutoPlaying && bestsellers.length > Math.floor(itemsPerView)) {
         setCurrentIndex(prev => {
@@ -66,6 +65,7 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
     };
   }, [startAutoPlay, isAutoPlaying, isDragging, bestsellers.length, itemsPerView]);
 
+  // Navegación
   const goToPrevious = () => {
     setCurrentIndex(prev => {
       const maxIndex = bestsellers.length - Math.floor(itemsPerView);
@@ -125,8 +125,8 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
 
   return (
     <section id="bestsellers" className="py-16 lg:py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
-      {/* Header */}
       <div className="max-w-7xl mx-auto px-4 relative z-10">
+        {/* Header */}
         <div className="text-center mb-12 lg:mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
             <Crown className="w-6 h-6 lg:w-8 lg:h-8 text-amber-400" />
@@ -142,7 +142,6 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
 
         {/* Carousel */}
         <div className="relative">
-          {/* Botones de navegación */}
           {bestsellers.length > Math.floor(itemsPerView) && (
             <>
               <button
@@ -180,7 +179,7 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
                 >
                   <div 
                     className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg overflow-hidden shadow-xl h-full cursor-pointer hover:scale-105 transition-transform"
-                    onClick={() => onViewDetails(perfume)} // ✅ Abre modal de detalles
+                    onClick={() => onViewDetails(perfume)} 
                   >
                     <img 
                       src={perfume.image_link} 
@@ -192,10 +191,9 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
                       <p className="text-gray-400 text-sm">{perfume.brand}</p>
                       <p className="text-amber-400">{formatPrice(perfume.price)}</p>
 
-                      {/* Botón de añadir al carrito */}
                       <button
                         onClick={(e) => {
-                          e.stopPropagation(); // evita abrir modal al añadir al carrito
+                          e.stopPropagation();
                           onAddToCart(perfume);
                         }}
                         disabled={perfume.stock === 0}
@@ -210,7 +208,6 @@ export default function BestsellersSection({ perfumes, onAddToCart, onViewDetail
             </div>
           </div>
 
-          {/* Indicadores (dots) */}
           {bestsellers.length > Math.floor(itemsPerView) && (
             <div className="flex justify-center mt-6 gap-2">
               {Array.from({ length: maxIndex + 1 }).map((_, index) => (
