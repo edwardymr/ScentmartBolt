@@ -66,12 +66,50 @@ export default function PerfumeCard({
       )}
 
       {/* Product Image */}
-      <div className="relative h-40 sm:h-48 md:h-64 bg-gray-100 overflow-hidden">
-        <img 
-          src={perfume.image_link} 
-          alt={perfume.title}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-        />
+      {/* Product Image */}
+<div className="relative aspect-[3/4] bg-gray-100 overflow-hidden">
+  <img 
+    src={perfume.image_link} 
+    alt={perfume.title}
+    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+  />
+
+  {/* Hover Overlay */}
+  <div
+    className={`absolute inset-0 bg-black/20 transition-opacity duration-300 ${
+      isHovered ? 'opacity-100' : 'opacity-0'
+    }`}
+  >
+    <div className="absolute bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-4">
+      <button
+        onClick={handleActionClick}
+        disabled={perfume.stock === 0 && !isAdminMode}
+        className={`w-full bg-orange-500 hover:bg-orange-600 disabled:bg-gray-400 text-white py-1.5 px-2 sm:py-2 sm:px-4 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-1 sm:gap-2 ${
+          isHovered ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
+        }`}
+      >
+        {isAdminMode ? (
+          <>
+            <Edit3 className="w-3 h-3 sm:w-4 sm:h-4" />
+            <span className="hidden sm:inline">Editar Producto</span>
+            <span className="sm:hidden">Editar</span>
+          </>
+        ) : (
+          <>
+            <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4" />
+            {perfume.stock === 0 ? 'Agotado' : (
+              <>
+                <span className="hidden sm:inline">Añadir al Carrito</span>
+                <span className="sm:hidden">Añadir</span>
+              </>
+            )}
+          </>
+        )}
+      </button>
+    </div>
+  </div>
+</div>
+
         
         {/* Hover Overlay */}
         <div
